@@ -1,0 +1,13 @@
+<resources>
+    <!--沉浸式状态栏-->
+    <style name="TranslucentStatusTheme" parent="AppTheme">
+        <!--设置状态栏透明，配合main_include_content.xml根布局设置与Toolbar颜色一致的背景色和fitsSystemWindows=true,达到沉浸状态栏的效果-->
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <!--网络上给的v21使用下面2句，在Activity根布局设置背景色和fitsSystemWindows,不知道为什么我的不行，怀疑与侧滑菜单有关-->
+        <!--不过却刚好实现了类似QQ的侧滑菜单进入状态栏，主页面不进入状态栏的效果-->
+        <!--<item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>-->
+    </style>
+
+</resources>

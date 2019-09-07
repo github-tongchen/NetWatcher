@@ -1,0 +1,6 @@
+<resources>
+
+    <!--用于在4.4及以上版本留出状态栏位置，达到沉浸式效果-->
+    <dimen name="status_bar_height">16dp</dimen>
+
+</resources>

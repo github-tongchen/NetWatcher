@@ -1,0 +1,8 @@
+<resources>
+
+    <!--沉浸式状态栏-->
+    <style name="TranslucentStatusTheme" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>
