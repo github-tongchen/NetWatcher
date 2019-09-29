@@ -22,7 +22,6 @@ abstract class BaseActivity<V : MvpView, P : MvpPresenter<V>> :
 
         loadContent()
         injectActivity()
-
     }
 
     abstract fun getLayoutId(): Int
