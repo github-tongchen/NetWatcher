@@ -18,15 +18,10 @@ abstract class BaseMVPActivity<CV : View, M, V : MvpLceView<M>, P : MvpBasePrese
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
 
-        loadContent()
         injectActivity()
-
-        getMvpDelegate()
     }
 
     abstract fun getLayoutId(): Int
-
-    abstract fun loadContent()
 
     abstract fun injectActivity()
 }
