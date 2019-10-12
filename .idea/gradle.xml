@@ -9,8 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app_gank" />
-            <option value="$PROJECT_DIR$/lib_mvp" />
+            <option value="$PROJECT_DIR$/base_mvp" />
+            <option value="$PROJECT_DIR$/module_gank" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

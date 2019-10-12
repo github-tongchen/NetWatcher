@@ -17,8 +17,6 @@ ext {
 
     glide_version = '4.7.1'
 
-    dagger_version = '2.16'
-
     retrofit_version = '2.4.0'
 
     rxjava_version = '2.1.14'

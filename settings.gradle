@@ -1,2 +1,2 @@
-include ':app', ':lib_mvp', ':app_gank'
+include ':app', ':base_mvp', ':module_gank'
 rootProject.name='NetWatcher'

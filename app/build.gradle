@@ -46,6 +46,6 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     kapt "androidx.lifecycle:lifecycle-compiler:2.1.0"
-    implementation project(path: ':app_gank')
+    implementation project(path: ':module_gank')
 
 }
