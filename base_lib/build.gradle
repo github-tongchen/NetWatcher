@@ -3,9 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
+//  ARouter配置
 kapt {
     arguments {
         arg("AROUTER_MODULE_NAME", project.getName())
+        //  生成路由文档
+        //  路径 : build/generated/source/apt/(debug or release)/com/alibaba/android/arouter/docs/arouter-map-of-${moduleName}.json
+        //  arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
     }
 }
 
@@ -23,6 +28,17 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    //  JAVA使用JAVA 8特性
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //  Kotlin使用JAVA 8特性
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -33,23 +49,21 @@ android {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-
-    implementation "com.hannesdorfmann.mosby3:mvp-lce:$mosby_mvp_lce_version"
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ext.ktxVersion"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appcompat_version}"
 
+    //  第三方依赖库
     //  Dagger2
-    api "com.google.dagger:dagger:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    api "com.google.dagger:dagger:${rootProject.ext.dagger_version}"
+    kapt "com.google.dagger:dagger-compiler:${rootProject.ext.dagger_version}"
+    //  Gson
+    api 'com.google.code.gson:gson:2.8.5'
+    //  Guava
+    //  api 'com.google.guava:guava:28.1-android'
 
-    api "com.alibaba:arouter-api:$arouter_api_version"
-    kapt "com.alibaba:arouter-compiler:1.2.2$arouter_compiler_version"
 }

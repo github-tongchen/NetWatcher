@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-buildscript {
+buildscript { 
     ext {
         //  引入配置参数的文件(在 buildscript 内调用才能全局使用)
         apply from: 'dependencies.gradle'
