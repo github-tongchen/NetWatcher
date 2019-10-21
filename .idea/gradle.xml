@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base_lib" />
             <option value="$PROJECT_DIR$/base_mvp" />
+            <option value="$PROJECT_DIR$/component_service" />
             <option value="$PROJECT_DIR$/module_gank" />
           </set>
         </option>

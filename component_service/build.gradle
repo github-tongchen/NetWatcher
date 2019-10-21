@@ -44,6 +44,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -51,22 +52,8 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.extJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
 
-    api fileTree(dir: 'libs', include: ['*.jar'])
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    api "androidx.core:core-ktx:$rootProject.ext.ktxVersion"
-    api "androidx.appcompat:appcompat:${rootProject.ext.appcompatVersion}"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(path: ':base_mvp')
-    //  第三方依赖库
     //  ARouter
-    api "com.alibaba:arouter-api:${rootProject.ext.arouterApiVersion}"
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
-    //  Dagger2
-    api "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
-    kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"
-    //  Gson
-    api 'com.google.code.gson:gson:2.8.5'
-    //  Guava
-    //  api 'com.google.guava:guava:28.1-android'
-
 }
