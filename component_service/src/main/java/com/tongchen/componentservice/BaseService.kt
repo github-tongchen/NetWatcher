@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.facade.template.IProvider
  * <p>
  * Desc:
  */
-interface IBaseService : IProvider {
+interface BaseService : IProvider {
 
     fun getFragment(): Fragment
 }

@@ -1,6 +1,6 @@
 package com.tongchen.componentservice.modulegank
 
-import com.tongchen.componentservice.IBaseService
+import com.tongchen.componentservice.BaseService
 
 /**
  * @author TongChen
@@ -8,4 +8,4 @@ import com.tongchen.componentservice.IBaseService
  * <p>
  * Desc:
  */
-interface IGankService : IBaseService
+interface GankService : BaseService

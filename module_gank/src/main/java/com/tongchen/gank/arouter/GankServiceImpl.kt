@@ -1,9 +1,10 @@
 package com.tongchen.gank.arouter
 
+import android.app.Fragment
 import androidx.fragment.app.Fragment
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.tongchen.componentservice.modulegank.IGankService
+import com.tongchen.componentservice.modulegank.GankService
 
 /**
  * @author TongChen
@@ -12,7 +13,7 @@ import com.tongchen.componentservice.modulegank.IGankService
  * Desc:模块间服务的具体实现
  */
 @Route(path="gank/service")
-class GankService : IGankService {
+class GankServiceImpl : GankService {
 
     override fun getFragment(): Fragment {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
