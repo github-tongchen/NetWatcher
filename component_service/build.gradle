@@ -56,4 +56,5 @@ dependencies {
 
     //  ARouter
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
+    api project(path: ':base_module')
 }

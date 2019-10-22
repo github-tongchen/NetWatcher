@@ -1,4 +1,4 @@
-include ':app',
+include ':app', ':base_module', ':base_widget',
         ':module_gank',
 
         ':base_mvp',
