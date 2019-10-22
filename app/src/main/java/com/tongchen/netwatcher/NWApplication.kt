@@ -3,11 +3,12 @@ package com.tongchen.netwatcher
 import android.app.Application
 
 /**
- * Created by TongChen at 15:34 on 2019/09/07.
- *
- * Description:该文件实现的功能
+ * @author TongChen
+ * @date 2019/09/07  15:34
+ * <p>
+ * Desc:
  */
-class NWApplication:Application(){
+class NWApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

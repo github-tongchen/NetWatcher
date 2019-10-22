@@ -1,7 +1,7 @@
-include ':app', ':base_module', ':base_widget',
+include ':app',
         ':module_gank',
-
-        ':base_mvp',
         ':component_service',
+        ':base_module',
+        ':base_widget',
         ':base_lib'
 rootProject.name = 'NetWatcher'

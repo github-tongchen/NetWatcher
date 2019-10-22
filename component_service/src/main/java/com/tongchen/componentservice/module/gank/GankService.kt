@@ -1,6 +1,6 @@
-package com.tongchen.componentservice.modulegank
+package com.tongchen.componentservice.module.gank
 
-import com.tongchen.componentservice.BaseService
+import com.tongchen.componentservice.module.BaseService
 
 /**
  * @author TongChen

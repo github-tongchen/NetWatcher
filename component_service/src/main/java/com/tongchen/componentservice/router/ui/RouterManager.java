@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 /**
  * @author TongChen
  * @date 2019/10/22  17:38
- * <p>
+ *
  * Desc:
  */
 public class RouterManager {

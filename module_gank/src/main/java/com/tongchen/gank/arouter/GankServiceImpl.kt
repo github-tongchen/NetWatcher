@@ -1,10 +1,9 @@
 package com.tongchen.gank.arouter
 
-import android.app.Fragment
 import androidx.fragment.app.Fragment
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.tongchen.componentservice.modulegank.GankService
+import com.tongchen.componentservice.module.gank.GankService
 
 /**
  * @author TongChen

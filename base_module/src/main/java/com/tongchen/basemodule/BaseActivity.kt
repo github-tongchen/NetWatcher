@@ -1,4 +1,4 @@
-package com.tongchen.mvp
+package com.tongchen.basemodule
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,9 +8,10 @@ import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback
 
 
 /**
- * Created by TongChen at 14:05 on 2019/09/07.
- *
- * Description:
+ * @author TongChen
+ * @date 2019/09/07  14:05
+ * <p>
+ * Desc:
  */
 abstract class BaseActivity<V : MvpView, P : MvpPresenter<V>> :
     AppCompatActivity(), MvpDelegateCallback<V, P> {

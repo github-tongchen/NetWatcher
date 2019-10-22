@@ -1,4 +1,4 @@
-package com.tongchen.componentservice
+package com.tongchen.componentservice.module
 
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.template.IProvider
