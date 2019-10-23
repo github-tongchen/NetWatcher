@@ -14,12 +14,12 @@ kapt {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -41,6 +41,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            //  移除无用的resource文件
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -48,14 +50,14 @@ android {
 }
 
 dependencies {
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.extJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
+    testImplementation "junit:junit:$rootProject.ext.versions.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.versions.extJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.versions.espressoCoreVersion"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //  ARouter
-    kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
-    api "org.jetbrains.kotlin:kotlin-reflect:${rootProject.ext.kotlinVersion}"
+    kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
+    api "org.jetbrains.kotlin:kotlin-reflect:$rootProject.ext.versions.kotlinVersion"
     api project(path: ':base_module')
 }

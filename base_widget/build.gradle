@@ -4,12 +4,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -31,6 +31,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            //  移除无用的resource文件
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,9 +41,9 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.extJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
+    testImplementation "junit:junit:$rootProject.ext.versions.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.versions.extJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.versions.espressoCoreVersion"
 
     api project(path: ':base_lib')
 }

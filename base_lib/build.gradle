@@ -14,12 +14,12 @@ kapt {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -41,6 +41,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            //  移除无用的resource文件
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -48,24 +50,24 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.extJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
+    testImplementation "junit:junit:$rootProject.ext.versions.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.versions.extJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.versions.espressoCoreVersion"
 
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    api "androidx.core:core-ktx:$rootProject.ext.ktxVersion"
-    api "androidx.appcompat:appcompat:${rootProject.ext.appcompatVersion}"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.versions.kotlinVersion"
+    api "androidx.core:core-ktx:$rootProject.ext.versions.ktxVersion"
+    api "androidx.appcompat:appcompat:$rootProject.ext.versions.appcompatVersion"
 
     //  第三方依赖库
-    api "com.hannesdorfmann.mosby3:mvp-lce:${rootProject.ext.mosbyMvpVersion}"
+    api "com.hannesdorfmann.mosby3:mvp-lce:$rootProject.ext.versions.mosbyMvpVersion"
     //  ARouter
-    api "com.alibaba:arouter-api:${rootProject.ext.arouterApiVersion}"
-    kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
+    api "com.alibaba:arouter-api:$rootProject.ext.versions.arouterApiVersion"
+    kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
     //  Dagger2
-    api "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
-    kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"
+    api "com.google.dagger:dagger:$rootProject.ext.versions.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.versions.daggerVersion"
     //  Gson
-    api "com.google.code.gson:gson:${rootProject.ext.gsonVersion}"
+    api "com.google.code.gson:gson:$rootProject.ext.versions.gsonVersion"
     //  Guava
     //  api 'com.google.guava:guava:28.1-android'
 
