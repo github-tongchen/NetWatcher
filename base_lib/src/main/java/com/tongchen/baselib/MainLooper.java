@@ -1,14 +1,17 @@
+/*
 package com.tongchen.baselib;
 
 import android.os.Handler;
 import android.os.Looper;
 
+*/
 /**
  * @author TongChen
  * @date 2019/10/20  18:15
  * <p>
  * Desc:
- */
+ *//*
+
 public class MainLooper extends Handler {
 
     private static MainLooper instance = new MainLooper(Looper.getMainLooper());
@@ -30,3 +33,4 @@ public class MainLooper extends Handler {
 
     }
 }
+*/
