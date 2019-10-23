@@ -46,6 +46,8 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     kapt "androidx.lifecycle:lifecycle-compiler:2.1.0"
-    implementation project(path: ':component_service')
+//    implementation "androidx.lifecycle:lifecycle-common-java8:2.1.0"
 
+    implementation project(path: ':component_service')
+    implementation project(path: ':module_gank')
 }

@@ -65,7 +65,7 @@ dependencies {
     api "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
     kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"
     //  Gson
-    api 'com.google.code.gson:gson:2.8.5'
+    api "com.google.code.gson:gson:${rootProject.ext.gsonVersion}"
     //  Guava
     //  api 'com.google.guava:guava:28.1-android'
 

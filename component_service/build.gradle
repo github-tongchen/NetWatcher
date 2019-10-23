@@ -56,5 +56,6 @@ dependencies {
 
     //  ARouter
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
+    api "org.jetbrains.kotlin:kotlin-reflect:${rootProject.ext.kotlinVersion}"
     api project(path: ':base_module')
 }
