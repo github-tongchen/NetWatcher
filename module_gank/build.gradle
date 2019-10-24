@@ -96,6 +96,6 @@ dependencies {
     //  ARouter
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
     //  Dagger
-    api "com.google.dagger:dagger:$rootProject.ext.versions.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.versions.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.versions.daggerVersion"
 }
