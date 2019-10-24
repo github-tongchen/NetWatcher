@@ -1,7 +1,7 @@
 <resources>
 
     <!--沉浸式状态栏-->
-    <style name="TranslucentStatusTheme" parent="AppTheme">
+    <style name="TranslucentStatusTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 

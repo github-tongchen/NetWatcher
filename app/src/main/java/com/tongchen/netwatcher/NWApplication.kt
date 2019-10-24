@@ -1,7 +1,7 @@
 package com.tongchen.netwatcher
 
 import android.app.Application
-import com.tongchen.componentservice.Router
+import com.tongchen.componentservice.router.Router
 
 /**
  * @author TongChen
@@ -17,8 +17,12 @@ class NWApplication : Application() {
         Router.registerComponent("com.tongchen.gank.GankAppLike")
     }
 
+
+    //  此方法只在模拟器上生效
     override fun onTerminate() {
         super.onTerminate()
+
+        Router.unregisterComponent("com.tongchen.gank.GankAppLike")
     }
 
 

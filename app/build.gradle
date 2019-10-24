@@ -12,7 +12,7 @@ android {
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -70,5 +70,21 @@ dependencies {
 //    implementation "androidx.lifecycle:lifecycle-common-java8:2.1.0"
 
     implementation project(path: ':component_service')
-//    implementation project(path: ':module_gank')
+
+    /*if (!rootProject.ext.components.isGankAlone) {
+        implementation project(path: ':module_gank')
+    }
+
+    if (!rootProject.ext.components.isMZiTuAlone) {
+
+    }*/
+
+    addModule()
+}
+
+def addModule() {
+    if (!rootProject.ext.components.isGankAlone) {
+        project.dependencies.add("implementation", project.project(':module_gank'))
+    }
+
 }

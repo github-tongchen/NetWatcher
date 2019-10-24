@@ -14,11 +14,11 @@ class GankAppLike : BaseApplicationLike {
     private val TAG = "GankAppLike"
 
     override fun onCreate() {
-        Log.d(TAG,"---onCreate")
+        Log.d(TAG, "---onCreate")
     }
 
     override fun onTerminate() {
-        Log.d(TAG,"---onCreate")
+        Log.d(TAG, "---onCreate")
     }
 
 }

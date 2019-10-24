@@ -11,7 +11,7 @@ import com.tongchen.componentservice.module.gank.GankService
  * <p>
  * Desc:模块间服务的具体实现
  */
-@Route(path="gank/service")
+@Route(path = "gank/service")
 class GankServiceImpl : GankService {
 
     override fun getFragment(): Fragment {

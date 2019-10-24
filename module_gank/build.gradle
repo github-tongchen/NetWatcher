@@ -31,7 +31,7 @@ android {
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -93,5 +93,9 @@ dependencies {
 
     implementation project(path: ':component_service')
 
+    //  ARouter
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
+    //  Dagger
+    api "com.google.dagger:dagger:$rootProject.ext.versions.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.versions.daggerVersion"
 }

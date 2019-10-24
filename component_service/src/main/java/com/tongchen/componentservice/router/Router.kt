@@ -1,9 +1,8 @@
-package com.tongchen.componentservice
+package com.tongchen.componentservice.router
 
 import android.text.TextUtils
 import androidx.annotation.NonNull
 import com.tongchen.componentservice.applicationlike.BaseApplicationLike
-import com.tongchen.componentservice.router.ui.RouteManager
 import kotlin.collections.HashMap
 
 /**
@@ -40,7 +39,7 @@ object Router {
     /**
      * 注册组件
      *
-     * @param classname 组件名
+     * @param className 组件名
      */
     @Synchronized
     fun registerComponent(@NonNull className: String) {
@@ -63,7 +62,7 @@ object Router {
     /**
      * 反注册组件
      *
-     * @param classname 组件名
+     * @param className 组件名
      */
     @Synchronized
     fun unregisterComponent(@NonNull className: String) {

@@ -21,7 +21,7 @@ android {
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -56,8 +56,8 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    api project(path: ':base_module')
+
     //  ARouter
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
-    api "org.jetbrains.kotlin:kotlin-reflect:$rootProject.ext.versions.kotlinVersion"
-    api project(path: ':base_module')
 }

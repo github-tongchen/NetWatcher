@@ -21,7 +21,7 @@ android {
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -55,6 +55,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.versions.espressoCoreVersion"
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.versions.kotlinVersion"
+    api "org.jetbrains.kotlin:kotlin-reflect:$rootProject.ext.versions.kotlinVersion"
     api "androidx.core:core-ktx:$rootProject.ext.versions.ktxVersion"
     api "androidx.appcompat:appcompat:$rootProject.ext.versions.appcompatVersion"
 
@@ -66,6 +67,10 @@ dependencies {
     //  Dagger2
     api "com.google.dagger:dagger:$rootProject.ext.versions.daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$rootProject.ext.versions.daggerVersion"
+
+    api "com.google.dagger:dagger-android:$rootProject.ext.versions.daggerVersion"
+    api "com.google.dagger:dagger-android-support:$rootProject.ext.versions.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.versions.daggerVersion"
     //  Gson
     api "com.google.code.gson:gson:$rootProject.ext.versions.gsonVersion"
     //  Guava
