@@ -67,12 +67,46 @@ dependencies {
     //  Dagger2
     api "com.google.dagger:dagger:$rootProject.ext.versions.daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$rootProject.ext.versions.daggerVersion"
-
+    //  Dagger-Android
     api "com.google.dagger:dagger-android:$rootProject.ext.versions.daggerVersion"
     api "com.google.dagger:dagger-android-support:$rootProject.ext.versions.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.versions.daggerVersion"
+
+    //  Retrofit2
+    api "com.squareup.retrofit2:retrofit:$rootProject.ext.versions.retrofitVersion"
+    //  RxJava2 Adapter
+    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.versions.retrofitVersion"
+    //  converter
+    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.versions.retrofitVersion"
+    api "com.squareup.retrofit2:converter-scalars:$rootProject.ext.versions.retrofitVersion"
+    api "com.squareup.retrofit2:converter-jaxb:$rootProject.ext.versions.retrofitVersion"
+    //  OkHttp3
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.versions.okHttpVersion"
+    //  OkHttp3 Logging Interceptor
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.versions.okHttpVersion"
+    //  OkIo
+    api "com.squareup.okio:okio:$rootProject.ext.versions.okIoVersion"
+    //  RxJava2
+    api "io.reactivex.rxjava2:rxjava:$rootProject.ext.versions.rxJavaVersion"
+    //  RxAndroid
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.versions.rxAndroidVersion"
     //  Gson
     api "com.google.code.gson:gson:$rootProject.ext.versions.gsonVersion"
+    //  Jsoup
+    api "org.jsoup:jsoup:$rootProject.ext.versions.jsoupVersion"
+    //  方便实体类重写toString输出日志
+    api 'org.apache.commons:commons-lang3:3.9'
+
+    //  Glide
+    api "com.github.bumptech.glide:glide:$rootProject.ext.versions.glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.ext.versions.glideVersion"
+
+    //  SmartRefreshLayout
+    api "com.scwang.smartrefresh:SmartRefreshLayout:$rootProject.ext.versions.smartRefreshLayoutVersion"
+    api "com.scwang.smartrefresh:SmartRefreshHeader:$rootProject.ext.versions.smartRefreshLayoutVersion"
+
+
+
     //  Guava
     //  api 'com.google.guava:guava:28.1-android'
 

@@ -7,37 +7,42 @@ ext {
     ]
 
     versions = [
-            compileSdkVersion     : 29,
-            buildToolsVersion     : '29.0.2',
-            minSdkVersion         : 19,
-            targetSdkVersion      : 29,
+            compileSdkVersion        : 29,
+            buildToolsVersion        : '29.0.2',
+            minSdkVersion            : 21,
+            targetSdkVersion         : 29,
 
-            junitVersion          : '4.12',
-            extJunitVersion       : '1.1.1',
-            espressoCoreVersion   : '3.2.0',
+            junitVersion             : '4.12',
+            extJunitVersion          : '1.1.1',
+            espressoCoreVersion      : '3.2.0',
 
-            kotlinVersion         : '1.3.50',
-            ktxVersion            : '1.1.0',
-            appcompatVersion      : '1.1.0',
+            kotlinVersion            : '1.3.50',
+            ktxVersion               : '1.1.0',
+            appcompatVersion         : '1.1.0',
 
 
-            mosbyMvpVersion       : '3.1.1',
+            mosbyMvpVersion          : '3.1.1',
 
-            arouterApiVersion     : '1.5.0',
-            arouterCompilerVersion: '1.2.2',
+            arouterApiVersion        : '1.5.0',
+            arouterCompilerVersion   : '1.2.2',
 
-            daggerVersion         : '2.25.2',
+            daggerVersion            : '2.25.2',
 
-            gsonVersion           : '2.8.5',
+            retrofitVersion          : '2.6.2',
+            okHttpVersion            : '4.2.2',
+            okIoVersion              : '2.4.1',
 
-            glideVersion          : '4.7.1',
+            gsonVersion              : '2.8.5',
 
-            retrofitVersion       : '2.4.0',
+            rxJavaVersion            : '2.2.13',
+            rxAndroidVersion         : '2.1.1',
 
-            rxjavaVersion         : '2.1.14',
+            glideVersion             : '4.9.0',
 
-            rxandroidVersion      : '2.1.0',
+            smartRefreshLayoutVersion: '1.1.0',
 
-            dbflowVersion         : '4.2.4'
+            jsoupVersion             : '1.12.1',
+
+            dbflowVersion            : '4.2.4'
     ]
 }
