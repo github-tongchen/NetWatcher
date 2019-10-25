@@ -20,7 +20,6 @@ ext {
             ktxVersion               : '1.1.0',
             appcompatVersion         : '1.1.0',
 
-
             mosbyMvpVersion          : '3.1.1',
 
             arouterApiVersion        : '1.5.0',
@@ -32,17 +31,14 @@ ext {
             okHttpVersion            : '4.2.2',
             okIoVersion              : '2.4.1',
 
-            gsonVersion              : '2.8.5',
-
             rxJavaVersion            : '2.2.13',
             rxAndroidVersion         : '2.1.1',
 
-            glideVersion             : '4.9.0',
-
-            smartRefreshLayoutVersion: '1.1.0',
-
+            gsonVersion              : '2.8.5',
             jsoupVersion             : '1.12.1',
+            dbflowVersion            : '4.2.4',
 
-            dbflowVersion            : '4.2.4'
+            glideVersion             : '4.9.0',
+            smartRefreshLayoutVersion: '1.1.0',
     ]
 }

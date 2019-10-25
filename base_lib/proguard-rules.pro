@@ -31,6 +31,8 @@
 # -keep class * implements com.alibaba.android.arouter.facade.template.IProvider
 
 #===================================== Dagger2 & DaggerAndroid =====================================#
+# https://github.com/google/dagger/issues/645
+-dontwarn com.google.errorprone.annotations.*
 
 #============================================ Retrofit2 ============================================#
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
@@ -80,16 +82,43 @@
 # Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
 -dontwarn org.codehaus.mojo.animal_sniffer.*
 
-#============================================= RxJava2 =============================================#
+#======================================= RxJava2 & RxAndroid =======================================#
+-dontwarn rx.*
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQuene*Field*{
+long producerIndex;
+long consumerIndex;
+}
 
-#============================================ RxAndroid ============================================#
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+rx.internal.util.atomic.LinkedQueueNode producerNode;
+rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
 
 #============================================== Gson ===============================================#
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+-keepattributes Signature
+
+# For using GSON @Expose annotation
+-keepattributes *Annotation*
+
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+
+# Application classes that will be serialized/deserialized over Gson
+# 改为自己的实体类
+-keep class com.google.gson.examples.android.model.** { *; }
 
 #============================================== Jsoup ==============================================#
 -keeppackagenames org.jsoup.nodes
 
-#========================================== commons-lang3 ==========================================#
+#============================================== DBFlow =============================================#
+-keep class * extends com.raizlabs.android.dbflow.config.DatabaseHolder { *; }
 
 #============================================== Glide ==============================================#
 -keep public class * implements com.bumptech.glide.module.GlideModule
