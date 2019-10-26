@@ -27,6 +27,15 @@ allprojects {
     }
 }
 
+subprojects {
+    afterEvaluate {
+        android {
+            //  约束资源前缀必须为"模块名_"（只能约束XML，并不能约束图片资源）
+            resourcePrefix "${project.name}_"
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

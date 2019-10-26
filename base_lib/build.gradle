@@ -115,8 +115,4 @@ dependencies {
     //  SmartRefreshLayout
     api "com.scwang.smartrefresh:SmartRefreshLayout:$rootProject.ext.versions.smartRefreshLayoutVersion"
     api "com.scwang.smartrefresh:SmartRefreshHeader:$rootProject.ext.versions.smartRefreshLayoutVersion"
-
-    //  Guava
-    //  api 'com.google.guava:guava:28.1-android'
-
 }

@@ -38,6 +38,7 @@ android {
     }
 
     if (isRunAlone) {
+        multiDexEnabled true
         project.android.sourceSets {
             main {
                 manifest.srcFile 'src/runalone/AndroidManifest.xml'
