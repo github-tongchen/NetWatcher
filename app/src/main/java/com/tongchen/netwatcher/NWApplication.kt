@@ -1,7 +1,8 @@
 package com.tongchen.netwatcher
 
-import android.app.Application
+import com.tongchen.basemodule.BaseApplication
 import com.tongchen.componentservice.router.Router
+import com.tongchen.componentservice.router.ui.RouteManager
 
 /**
  * @author TongChen
@@ -9,12 +10,13 @@ import com.tongchen.componentservice.router.Router
  * <p>
  * Desc:
  */
-class NWApplication : Application() {
+class NWApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
 
         Router.registerComponent("com.tongchen.gank.GankAppLike")
+        Router.registerComponent("com.tongchen.mzitu.MZiTuAppLike")
     }
 
 
@@ -25,5 +27,11 @@ class NWApplication : Application() {
         Router.unregisterComponent("com.tongchen.gank.GankAppLike")
     }
 
+    override fun initComponentDI() {
 
+    }
+
+    override fun registerRouter() {
+        RouteManager.initRouter(mInstance)
+    }
 }

@@ -1,14 +1,32 @@
-apply plugin: 'com.android.application'
+boolean isRunAlone = rootProject.ext.components.isMZiTuAlone
+if (isRunAlone) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+
+//  ARouter配置
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+        //  生成路由文档
+        //  路径 : build/generated/source/apt/(debug or release)/com/alibaba/android/arouter/docs/arouter-map-of-${moduleName}.json
+        //  arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+    }
+}
 
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
     buildToolsVersion rootProject.ext.versions.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.tongchen.netwatcher"
+        if (isRunAlone) {
+            applicationId "com.tongchen.mzitu"
+        }
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
@@ -16,8 +34,19 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+    }
 
+    if (isRunAlone) {
         multiDexEnabled true
+        project.android.sourceSets {
+            main {
+                manifest.srcFile 'src/runalone/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java', 'src/runalone/java']
+                res.srcDirs = ['src/main/res', 'src/runalone/res']
+                assets.srcDirs = ['src/main/assets', 'src/runalone/assets']
+                jniLibs.srcDirs = ['src/main/jniLibs', 'src/runalone/jniLibs']
+            }
+        }
     }
 
     //  JAVA使用JAVA 8特性
@@ -40,10 +69,12 @@ android {
         }
     }
 
-    //  自定义打包apk名
-    applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "${project.name}_${variant.versionName}_${releaseTime()}_${variant.buildType.name}.apk"
+    if (isRunAlone) {
+        //  自定义打包apk名
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "${project.name}_${variant.versionName}_${releaseTime()}_${variant.buildType.name}.apk"
+            }
         }
     }
 }
@@ -58,39 +89,14 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.versions.extJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.versions.espressoCoreVersion"
 
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
-
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    kapt "androidx.lifecycle:lifecycle-compiler:2.1.0"
-//    implementation "androidx.lifecycle:lifecycle-common-java8:2.1.0"
 
     implementation project(path: ':component_service')
 
-    /*if (!rootProject.ext.components.isGankAlone) {
-        implementation project(path: ':module_gank')
-    }
-
-    if (!rootProject.ext.components.isMZiTuAlone) {
-
-    }*/
-
-    addModule()
+    //  ARouter
+    kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
+    //  Dagger
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.versions.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.versions.daggerVersion"
 }
 
-def addModule() {
-    if (!rootProject.ext.components.isGankAlone) {
-        project.dependencies.add("implementation", project.project(':module_gank'))
-    }
-
-    if (!rootProject.ext.components.isMZiTuAlone) {
-        project.dependencies.add("implementation", project.project(':module_mzitu'))
-    }
-
-}

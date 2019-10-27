@@ -1,5 +1,6 @@
 include ':app',
         ':module_gank',
+        ':module_mzitu',
         ':component_service',
         ':base_module',
         ':base_widget',

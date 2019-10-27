@@ -1,17 +1,17 @@
-package com.tongchen.gank
+package com.tongchen.mzitu.arouter
 
 import android.util.Log
 import com.tongchen.componentservice.applicationlike.BaseApplicationLike
 
 /**
  * @author TongChen
- * @date 2019/10/23  14:32
+ * @date 2019/10/26  18:14
  * <p>
- * Description:
+ * Desc:
  */
-class GankAppLike : BaseApplicationLike {
+class MZiTuAppLike : BaseApplicationLike {
 
-    private val TAG = "GankAppLike"
+    private val TAG = "MZiTuAppLike"
 
     override fun onCreate() {
         Log.d(TAG, "---onCreate")
@@ -20,5 +20,4 @@ class GankAppLike : BaseApplicationLike {
     override fun onTerminate() {
         Log.d(TAG, "---onTerminate")
     }
-
 }

@@ -1,8 +1,6 @@
 package com.tongchen.basemodule
 
 import android.app.Application
-import android.content.Context
-import androidx.multidex.MultiDex
 
 /**
  * @author TongChen
@@ -10,10 +8,25 @@ import androidx.multidex.MultiDex
  * <p>
  * Desc:
  */
-class BaseApplication : Application() {
+abstract class BaseApplication : Application() {
 
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        MultiDex.install(base)
+    protected lateinit var mInstance: BaseApplication
+    // BaseAppComponent 要保证唯一来自于BaseModuleKit， 即只能被创建一次
+    private var mAppComponent: BaseAppComponent? = null
+
+    override fun onCreate() {
+        super.onCreate()
+        mInstance = this
+
+        initComponentDI()
+        registerRouter()
     }
+
+    fun baseAppComponent(): BaseAppComponent? {
+        return if(mAppComponent==null) BaseModuleKit.getComponent() else null
+    }
+
+    abstract fun initComponentDI()
+
+    abstract fun registerRouter()
 }
