@@ -1,5 +1,7 @@
 ext {
 
+    isDebug = true
+
     //  配置各个模块是否单独打包
     components = [
             isGankAlone : false,

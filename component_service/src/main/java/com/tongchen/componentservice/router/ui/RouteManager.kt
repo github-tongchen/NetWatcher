@@ -8,9 +8,9 @@ import com.alibaba.android.arouter.launcher.ARouter
  * @author TongChen
  * @date 2019/10/23  15:38
  * <p>
- * Description:
+ * Desc:
  */
-class RouteManager {
+class RouteManager private constructor() {
 
     companion object {
         /**

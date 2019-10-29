@@ -1,5 +1,6 @@
 package com.tongchen.basemodule.di
 
+import android.content.Context
 import dagger.Component
 import javax.inject.Singleton
 
@@ -9,14 +10,13 @@ import javax.inject.Singleton
  * <p>
  * Desc:
  */
-/**
- * @author TongChen
- * @date 2019/10/27  18:14
- * <p>
- * Desc:
- */
 @Singleton
-@Component(modules = [AppModule::class])
+@Component(modules = [BaseAppModule::class])
 interface BaseAppComponent {
 
+    /*fun restApi(): RestApi
+
+    fun rxBus(): RxBus
+
+    fun apiService(): HttpApiService*/
 }

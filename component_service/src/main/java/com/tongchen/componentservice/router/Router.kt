@@ -9,7 +9,7 @@ import kotlin.collections.HashMap
  * @author TongChen
  * @date 2019/10/23  10:40
  * <p>
- * Description:路由中心，用于控制组件动态的加载/移除和 Service的 add/remove/get
+ * Desc:路由中心，用于控制组件动态的加载/移除和 Service的 add/remove/get
  */
 object Router {
 

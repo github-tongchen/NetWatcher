@@ -14,7 +14,7 @@ import java.lang.reflect.Type
  * <p>
  * Desc:转换工厂类，支持JSON、XML、STRING 3种格式的工厂创建，配合[ResponseFormat]使用
  */
-class MultipleConverterFactory : Converter.Factory() {
+class MultipleConverterFactory private constructor() : Converter.Factory() {
 
     private val mJsonFactory: Converter.Factory = GsonConverterFactory.create()
     private val mStringFactory: Converter.Factory = ScalarsConverterFactory.create()
@@ -41,12 +41,12 @@ class MultipleConverterFactory : Converter.Factory() {
                     annotations,
                     retrofit
                 )
-                ResponseFormat.STRING ->return mStringFactory.responseBodyConverter(
+                ResponseFormat.STRING -> return mStringFactory.responseBodyConverter(
                     type,
                     annotations,
                     retrofit
                 )
-                ResponseFormat.XML ->return mXmlFactory.responseBodyConverter(
+                ResponseFormat.XML -> return mXmlFactory.responseBodyConverter(
                     type,
                     annotations,
                     retrofit

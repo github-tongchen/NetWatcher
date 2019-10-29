@@ -80,6 +80,11 @@ android {
     }
 }
 
+androidExtensions {
+    //  启用kotlin extension实验性功能
+    experimental = true
+}
+
 //  获取编译时间
 static def releaseTime() {
     return new Date().format("yyyyMMdd-HHmm", TimeZone.getTimeZone("UTC"))

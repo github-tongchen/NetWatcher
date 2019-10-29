@@ -3,6 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+//  ARouter配置
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+        //  生成路由文档
+        //  路径 : build/generated/source/apt/(debug or release)/com/alibaba/android/arouter/docs/arouter-map-of-${moduleName}.json
+        //  arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
     buildToolsVersion rootProject.ext.versions.buildToolsVersion
@@ -70,6 +80,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     kapt "androidx.lifecycle:lifecycle-compiler:2.1.0"
 //    implementation "androidx.lifecycle:lifecycle-common-java8:2.1.0"
+
+
+    //  ARouter
+    kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
 
     implementation project(path: ':component_service')
 
