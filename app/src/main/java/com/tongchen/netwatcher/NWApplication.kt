@@ -27,7 +27,7 @@ class NWApplication : BaseApplication() {
         Router.unregisterComponent("com.tongchen.gank.GankAppLike")
     }
 
-    override fun initComponentDI() {
+    override fun initComponentDi() {
 
     }
 

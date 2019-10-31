@@ -4,7 +4,6 @@ import android.app.Application
 import com.tongchen.basemodule.di.BaseAppComponent
 import com.tongchen.basemodule.di.BaseAppModule
 import com.tongchen.basemodule.di.DaggerBaseAppComponent
-import com.tongchen.basemodule.modulekit.BaseModuleKit
 
 /**
  * @author TongChen
@@ -26,7 +25,7 @@ abstract class BaseApplication : Application() {
         super.onCreate()
         mInstance = this
 
-        initComponentDI()
+        initComponentDi()
         registerRouter()
     }
 
@@ -40,7 +39,7 @@ abstract class BaseApplication : Application() {
         }
     }
 
-    abstract fun initComponentDI()
+    abstract fun initComponentDi()
 
     abstract fun registerRouter()
 }

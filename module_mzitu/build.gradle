@@ -26,6 +26,7 @@ android {
     defaultConfig {
         if (isRunAlone) {
             applicationId "com.tongchen.mzitu"
+            multiDexEnabled true
         }
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
@@ -37,7 +38,6 @@ android {
     }
 
     if (isRunAlone) {
-        multiDexEnabled true
         project.android.sourceSets {
             main {
                 manifest.srcFile 'src/runalone/AndroidManifest.xml'

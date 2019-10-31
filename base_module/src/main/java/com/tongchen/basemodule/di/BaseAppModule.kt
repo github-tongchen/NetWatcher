@@ -24,12 +24,4 @@ class BaseAppModule constructor(application: Application) {
     @Singleton
     @Provides
     fun provideContext(): Context = mApplication
-
-
-    /*@Singleton
-    @Provides
-    fun provideRxBus(): RxBus {
-        return RxBus.getInstance()
-    }*/
-
 }

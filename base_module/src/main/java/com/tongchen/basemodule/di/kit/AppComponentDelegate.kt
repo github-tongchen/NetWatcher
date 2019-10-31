@@ -1,4 +1,4 @@
-package com.tongchen.basemodule.modulekit
+package com.tongchen.basemodule.di.kit
 
 import com.tongchen.basemodule.di.AbstractAppComponent
 
