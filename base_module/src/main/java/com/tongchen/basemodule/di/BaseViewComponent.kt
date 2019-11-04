@@ -1,6 +1,8 @@
 package com.tongchen.basemodule.di
 
 import android.app.Activity
+import com.tongchen.basemodule.BaseMVPActivity
+import com.tongchen.basemodule.BaseMVPFragment
 import dagger.Component
 
 /**
@@ -15,7 +17,8 @@ interface BaseViewComponent {
 
     fun activity(): Activity
 
-//    fun inject(activity: AbstractActivity)
+    //  星号投影
+//    fun inject(activity: BaseMVPActivity<*, *, *, *>)
 
-//    fun inject(fragment: BaseFragment)
+//    fun inject(fragment: BaseMVPFragment<*, *, *, *>)
 }

@@ -2,12 +2,11 @@ package com.tongchen.basemodule
 
 import android.os.Bundle
 import androidx.annotation.NonNull
-import androidx.appcompat.app.AppCompatActivity
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter
 import com.hannesdorfmann.mosby3.mvp.MvpView
 import com.hannesdorfmann.mosby3.mvp.delegate.ActivityMvpDelegate
-import com.hannesdorfmann.mosby3.mvp.delegate.ActivityMvpDelegateImpl
 import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback
+import com.hannesdorfmann.mosby3.mvp.delegate.ActivityMvpDelegateImpl
 
 
 /**
@@ -16,10 +15,11 @@ import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback
  * <p>
  * Desc:
  */
-abstract class BaseActivity<V : MvpView?, P : MvpPresenter<V>?> : AppCompatActivity(),
-    MvpDelegateCallback<V, P> {
+abstract class BaseActivity<V : MvpView?, P : MvpPresenter<V>?> : BaseRootActivity(),
+    MvpView, MvpDelegateCallback<V, P> {
 
-    lateinit var mvpDelegate: ActivityMvpDelegate<V, P>
+    //  星号投影
+    protected var mvpDelegate: ActivityMvpDelegate<*, *>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +28,11 @@ abstract class BaseActivity<V : MvpView?, P : MvpPresenter<V>?> : AppCompatActiv
 //        mvpDelegate.onCreate(savedInstanceState)
     }
 
-    abstract fun getLayoutId(): Int
 
     @NonNull
-    protected fun getMvpDelegate1(): ActivityMvpDelegate<V, P> {
+    protected fun getMVPDelegate(): ActivityMvpDelegate<*, *>? {
         if (mvpDelegate == null) {
-            mvpDelegate = ActivityMvpDelegateImpl(this, this, true)
+            mvpDelegate = ActivityMvpDelegateImpl<V, P>(this, this, true)
         }
 
         return mvpDelegate
