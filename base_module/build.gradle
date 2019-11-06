@@ -27,6 +27,10 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     //  JAVA使用JAVA 8特性
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

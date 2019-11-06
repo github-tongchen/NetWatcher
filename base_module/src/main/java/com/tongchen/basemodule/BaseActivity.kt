@@ -2,6 +2,8 @@ package com.tongchen.basemodule
 
 import android.os.Bundle
 import androidx.annotation.NonNull
+import androidx.databinding.DataBindingComponent
+import androidx.databinding.ViewDataBinding
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter
 import com.hannesdorfmann.mosby3.mvp.MvpView
 import com.hannesdorfmann.mosby3.mvp.delegate.ActivityMvpDelegate
@@ -15,8 +17,7 @@ import com.hannesdorfmann.mosby3.mvp.delegate.ActivityMvpDelegateImpl
  * <p>
  * Desc:
  */
-abstract class BaseActivity<V : MvpView?, P : MvpPresenter<V>?> : BaseRootActivity(),
-    MvpView, MvpDelegateCallback<V, P> {
+abstract class BaseActivity<DB : ViewDataBinding, V : MvpView?, P : MvpPresenter<V>?> : BaseRootActivity(), MvpView, MvpDelegateCallback<V, P> {
 
     //  星号投影
     protected var mvpDelegate: ActivityMvpDelegate<*, *>? = null
