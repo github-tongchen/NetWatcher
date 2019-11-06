@@ -8,6 +8,6 @@ import com.tongchen.basemodule.di.kit.BaseDiKit
  * <p>
  * Desc: 干货集中营模块的Dagger工具
  */
-object GankDiKit:BaseDiKit() {
+object GankDiKit : BaseDiKit() {
 
 }

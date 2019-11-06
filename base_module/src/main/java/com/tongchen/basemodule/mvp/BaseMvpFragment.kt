@@ -1,4 +1,4 @@
-package com.tongchen.basemodule
+package com.tongchen.basemodule.mvp
 
 import android.view.View
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter
@@ -11,6 +11,6 @@ import com.hannesdorfmann.mosby3.mvp.viewstate.lce.MvpLceViewStateFragment
  * <p>
  * Desc:
  */
-abstract class BaseMVPFragment<CV : View, M, V : MvpLceView<M>, P : MvpPresenter<V>> :
+abstract class BaseMvpFragment<CV : View, M, V : MvpLceView<M>, P : MvpPresenter<V>> :
     MvpLceViewStateFragment<CV, M, V, P>() {
 }
