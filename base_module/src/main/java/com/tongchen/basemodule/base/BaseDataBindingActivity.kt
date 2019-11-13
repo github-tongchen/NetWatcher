@@ -1,9 +1,11 @@
-package com.tongchen.basemodule
+package com.tongchen.basemodule.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 
 /**
  * @author TongChen
@@ -11,14 +13,15 @@ import androidx.appcompat.app.AppCompatActivity
  * <p>
  * Desc:
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseDataBindingActivity<DB : ViewDataBinding> : AppCompatActivity() {
+
+    protected lateinit var mDataBinding: ViewDataBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(getLayoutId())
+        mDataBinding = DataBindingUtil.setContentView(this, getLayoutId())
     }
-
 
     @NonNull
     @LayoutRes
