@@ -61,6 +61,10 @@ dependencies {
 
     //  第三方依赖库
     api "com.hannesdorfmann.mosby3:mvp-lce:$rootProject.ext.versions.mosbyMvpVersion"
+
+    //  EasyPermissions
+    api "pub.devrel:easypermissions:$rootProject.ext.versions.easyPermissionsVersion"
+
     //  ARouter
     api "com.alibaba:arouter-api:$rootProject.ext.versions.arouterApiVersion"
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.versions.arouterCompilerVersion"
