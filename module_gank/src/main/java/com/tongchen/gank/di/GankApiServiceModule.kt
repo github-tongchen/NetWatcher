@@ -1,9 +1,9 @@
 package com.tongchen.gank.di
 
-import com.tongchen.baselib.http.SSLSocketFactoryCompat
+import com.tongchen.baselib.net.SSLSocketFactoryCompat
 import com.tongchen.basemodule.di.AppScope
-import com.tongchen.gank.GankApi
-import com.tongchen.gank.GankServiceApi
+import com.tongchen.gank.net.GankApi
+import com.tongchen.gank.net.GankServiceApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

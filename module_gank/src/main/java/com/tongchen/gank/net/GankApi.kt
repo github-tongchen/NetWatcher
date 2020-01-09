@@ -1,4 +1,4 @@
-package com.tongchen.gank
+package com.tongchen.gank.net
 
 /**
  * @author TongChen

@@ -1,10 +1,7 @@
-package com.tongchen.baselib.http
+package com.tongchen.baselib.net
 
 import androidx.annotation.NonNull
 import java.io.IOException
-
-import javax.inject.Inject
-import javax.inject.Singleton
 
 import okhttp3.Interceptor
 import okhttp3.Response

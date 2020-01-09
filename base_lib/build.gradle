@@ -60,7 +60,7 @@ dependencies {
     api "androidx.appcompat:appcompat:$rootProject.ext.versions.appcompatVersion"
 
     //  第三方依赖库
-    api "com.hannesdorfmann.mosby3:mvp-lce:$rootProject.ext.versions.mosbyMvpVersion"
+    //  api "com.hannesdorfmann.mosby3:mvp-lce:$rootProject.ext.versions.mosbyMvpVersion"
 
     //  EasyPermissions
     api "pub.devrel:easypermissions:$rootProject.ext.versions.easyPermissionsVersion"

@@ -3,7 +3,7 @@ package com.tongchen.gank
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class GankMainActivity : AppCompatActivity() {
+class GankMainActivity : RootActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

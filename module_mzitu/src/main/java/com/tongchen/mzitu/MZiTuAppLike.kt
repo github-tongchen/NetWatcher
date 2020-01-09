@@ -17,7 +17,7 @@ class MZiTuAppLike : BaseApplicationLike {
         Log.d(TAG, "---onCreate")
     }
 
-    override fun onTerminate() {
-        Log.d(TAG, "---onTerminate")
+    override fun onDestroy() {
+        Log.d(TAG, "---onDestroy")
     }
 }

@@ -1,7 +1,7 @@
 package com.tongchen.basemodule.di
 
 import android.content.Context
-import com.tongchen.baselib.utils.LogUtils
+import com.tongchen.baselib.util.LogUtils
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache

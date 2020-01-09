@@ -9,7 +9,7 @@ import android.os.Looper
  * <p>
  * Desc:
  */
-class MainLooper protected constructor(looper: Looper) : Handler(looper) {
+class MainLooper private constructor(looper: Looper) : Handler(looper) {
 
     companion object {
         private val instance = MainLooper(Looper.getMainLooper())

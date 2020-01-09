@@ -1,4 +1,4 @@
-package com.tongchen.gank
+package com.tongchen.gank.net
 
 import com.tongchen.baselib.converter.ResponseFormat
 import com.tongchen.gank.entity.GankData

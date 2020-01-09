@@ -1,6 +1,6 @@
 package com.tongchen.mzitu
 
-import com.tongchen.baselib.http.CommonHeaderInterceptor
+import com.tongchen.baselib.net.CommonHeaderInterceptor
 import com.tongchen.basemodule.di.AppScope
 import dagger.Module
 import dagger.Provides

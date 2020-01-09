@@ -71,13 +71,13 @@ object Router {
         }
         try {
             if (componentMap.containsKey(className)) {
-                componentMap[className]!!.onTerminate()
+                componentMap[className]!!.onDestroy()
                 componentMap.remove(className)
                 return
             }
             val clazz = Class.forName(className)
             val applicationLike = clazz.newInstance() as BaseApplicationLike
-            applicationLike.onTerminate()
+            applicationLike.onDestroy()
             componentMap.remove(className)
         } catch (e: Exception) {
             e.printStackTrace()

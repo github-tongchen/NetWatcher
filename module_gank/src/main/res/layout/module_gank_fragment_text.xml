@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="result"
+            type="com.tongchen.gank.entity.GankResult" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+            <!--app:imageUrl='@{"http://7xopuh.dl1.z0.glb.clouddn.com/pic06.jpg"}'-->
+
+    </FrameLayout>
+
+</layout>

@@ -12,7 +12,7 @@ import dagger.Component
  * Desc:
  */
 @AppScope
-@Component(dependencies = [BaseAppComponent::class], modules = [GankModule::class])
+@Component(dependencies = [BaseAppComponent::class], modules = [GankAppModule::class])
 interface GankAppComponent : AbstractAppComponent {
 
 }

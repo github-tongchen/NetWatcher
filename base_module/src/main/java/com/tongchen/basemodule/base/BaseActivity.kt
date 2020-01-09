@@ -1,9 +1,6 @@
 package com.tongchen.basemodule.base
 
 import android.os.Bundle
-import androidx.annotation.LayoutRes
-import androidx.annotation.NonNull
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
@@ -13,9 +10,9 @@ import androidx.databinding.ViewDataBinding
  * <p>
  * Desc:
  */
-abstract class BaseDataBindingActivity<DB : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseActivity<DB : ViewDataBinding> : RootActivity() {
 
-    protected lateinit var mDataBinding: ViewDataBinding
+    protected lateinit var mDataBinding: DB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +20,9 @@ abstract class BaseDataBindingActivity<DB : ViewDataBinding> : AppCompatActivity
         mDataBinding = DataBindingUtil.setContentView(this, getLayoutId())
     }
 
-    @NonNull
-    @LayoutRes
-    abstract fun getLayoutId(): Int
+    override fun onDestroy() {
+        mDataBinding.unbind()
+        super.onDestroy()
+    }
+
 }

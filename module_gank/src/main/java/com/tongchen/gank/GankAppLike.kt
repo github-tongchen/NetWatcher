@@ -32,8 +32,8 @@ class GankAppLike : BaseApplicationLike {
         GankDiKit.init(mComponentDelegate)
     }
 
-    override fun onTerminate() {
-        Log.d(TAG, "---onTerminate")
+    override fun onDestroy() {
+        Log.d(TAG, "---onDestroy")
     }
 
 }

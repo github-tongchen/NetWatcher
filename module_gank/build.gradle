@@ -38,6 +38,10 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     if (isRunAlone) {
         project.android.sourceSets {
             main {

@@ -9,5 +9,5 @@ import dagger.Module
  * Desc:
  */
 @Module(includes = [GankApiServiceModule::class])
-class GankModule {
+class GankAppModule {
 }

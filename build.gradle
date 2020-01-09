@@ -25,6 +25,13 @@ allprojects {
         jcenter()
         maven { url "https://www.jitpack.io" }
     }
+
+    //  突破Android Studio Terminal 100 error的限制，输出所有的错误
+    afterEvaluate {
+        tasks.withType(JavaCompile.class) {
+            options.compilerArgs << "-Xmaxerrs" << "500"
+        }
+    }
 }
 
 subprojects {

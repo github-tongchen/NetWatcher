@@ -1,4 +1,4 @@
-package com.tongchen.baselib.utils
+package com.tongchen.baselib.util
 
 import android.util.Log
 
