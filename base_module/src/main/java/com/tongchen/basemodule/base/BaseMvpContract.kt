@@ -2,6 +2,10 @@ package com.tongchen.basemodule.base
 
 import androidx.annotation.NonNull
 import androidx.annotation.UiThread
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.OnLifecycleEvent
 import java.lang.ref.WeakReference
 
 /**
@@ -12,16 +16,37 @@ import java.lang.ref.WeakReference
  */
 interface BaseMvpContract {
 
-    interface MvpModel {
+    abstract class MvpModel : LifecycleObserver {
 
-        fun onDestroy()
+        private var mBaseApi: BaseApi? = null
+
+        constructor(baseApi: BaseApi) {
+            mBaseApi = baseApi
+        }
+
+        fun onDestroy() {
+            mBaseApi = null
+        }
+
+        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+        fun onDestroy(owner: LifecycleOwner) {
+            owner.lifecycle.removeObserver(this)
+        }
     }
 
 
     interface MvpView
-    
 
-    abstract class MvpPresenter<M : MvpModel, V : MvpView> {
+    private interface MvpPersenter1 : LifecycleObserver {
+
+        @OnLifecycleEvent(Lifecycle.Event.ON_START)
+        fun test() {
+
+        }
+    }
+
+
+    abstract class MvpPresenter<M : MvpModel, V : MvpView> : LifecycleObserver {
 
         private var mModel: M? = null
         private var mViewRef: WeakReference<V>? = null
@@ -29,6 +54,7 @@ interface BaseMvpContract {
         constructor(model: M) {
             mModel = model
         }
+
 
         @UiThread
         fun attachView(@NonNull view: V?) {
