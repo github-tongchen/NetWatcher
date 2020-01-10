@@ -31,6 +31,8 @@ ext {
 
             daggerVersion            : '2.25.2',
 
+            lifecycle_version        : '2.1.0',
+
             retrofitVersion          : '2.6.2',
             okHttpVersion            : '4.2.2',
             okIoVersion              : '2.4.1',

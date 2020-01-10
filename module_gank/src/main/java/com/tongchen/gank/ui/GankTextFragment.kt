@@ -32,7 +32,7 @@ class GankTextFragment : BaseFragment<ModuleGankFragmentTextBinding>() {
     }
 
 
-    fun dataBindingComponent(): GankDataBindingComponent? {
+    private fun dataBindingComponent(): GankDataBindingComponent? {
         if (mDataBindingComponent == null) {
             mDataBindingComponent = DaggerGankDataBindingComponent.builder()
                 .gankAppComponent(GankDiKit.mComponent as GankAppComponent)

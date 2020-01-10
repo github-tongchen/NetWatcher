@@ -77,11 +77,16 @@ dependencies {
     api "com.google.dagger:dagger-android-support:$rootProject.ext.versions.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.versions.daggerVersion"
 
+    //  Lifecycle
+    api "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.versions.lifecycle_version"
+    api "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.versions.lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.versions.lifecycle_version"
+
     //  Retrofit2
     api "com.squareup.retrofit2:retrofit:$rootProject.ext.versions.retrofitVersion"
     //  RxJava2 Adapter
     api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.versions.retrofitVersion"
-    //  converter
+    //  Converter
     api "com.squareup.retrofit2:converter-gson:$rootProject.ext.versions.retrofitVersion"
     api "com.squareup.retrofit2:converter-scalars:$rootProject.ext.versions.retrofitVersion"
     api "com.squareup.retrofit2:converter-jaxb:$rootProject.ext.versions.retrofitVersion"

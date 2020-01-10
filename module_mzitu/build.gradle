@@ -89,11 +89,10 @@ static def releaseTime() {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation "junit:junit:$rootProject.ext.versions.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.versions.extJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.versions.espressoCoreVersion"
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(path: ':component_service')
 
