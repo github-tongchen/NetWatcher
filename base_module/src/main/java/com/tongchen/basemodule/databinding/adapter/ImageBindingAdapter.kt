@@ -11,20 +11,18 @@ import androidx.databinding.BindingAdapter
  * <p>
  * Desc:
  */
-object ImageBindingAdapter {
 
-//    @BindingAdapter(value = ["imageUrl"])
-//    fun loadImage(view: ImageView, url: String) {
-//        //PicassoHelperUtils.displayImage(url, view)
-//    }
-//
-//    @BindingAdapter(value = ["imageUrl", "imageError"])
-//    fun loadImage(view: ImageView, url: String, error: Drawable) {
-//        //PicassoHelperUtils.displayImage(url, view, error)
-//    }
-//
-//    @BindingAdapter(value = ["imageUrl", "imageError", "imageWidth", "imageHeight", "imageCenterCrop"], requireAll = false)
-//    fun loadImage(view: ImageView, url: String, error: Drawable, width: Int, height: Int, centerCrop: Boolean) {
-//        //PicassoHelperUtils.displayImage(view, url, error, width, height, centerCrop)
-//    }
+@BindingAdapter(value = ["imageUrl"])
+fun ImageView.loadImage(url: String) {
+    //PicassoHelperUtils.displayImage(url, this)
+}
+
+@BindingAdapter(value = ["imageUrl", "imageError"])
+fun ImageView.loadImage(url: String, error: Drawable) {
+    //PicassoHelperUtils.displayImage(url, this, error)
+}
+
+@BindingAdapter(value = ["imageUrl", "imageError", "imageWidth", "imageHeight", "imageCenterCrop"], requireAll = false)
+fun ImageView.loadImage(url: String, error: Drawable, width: Int, height: Int, centerCrop: Boolean) {
+    //PicassoHelperUtils.displayImage(this, url, error, width, height, centerCrop)
 }

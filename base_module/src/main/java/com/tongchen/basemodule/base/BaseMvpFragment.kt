@@ -21,13 +21,12 @@ abstract class BaseMvpFragment<DB : ViewDataBinding, M : BaseMvpContract.MvpMode
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mPresenter.attachView(this as V)
+        lifecycle.addObserver(mPresenter)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
 
-        mPresenter.detachView()
     }
 
 }

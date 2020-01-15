@@ -6,7 +6,16 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
+import com.tongchen.baselib.util.LifecycleUtils
+import com.uber.autodispose.AutoDispose
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
+import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import java.lang.ref.WeakReference
+import java.util.concurrent.TimeUnit
 
 /**
  * @author TongChen
@@ -26,24 +35,18 @@ interface BaseMvpContract {
 
         fun onDestroy() {
             mBaseApi = null
+
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         fun onDestroy(owner: LifecycleOwner) {
+
             owner.lifecycle.removeObserver(this)
         }
     }
 
 
     interface MvpView
-
-    private interface MvpPersenter1 : LifecycleObserver {
-
-        @OnLifecycleEvent(Lifecycle.Event.ON_START)
-        fun test() {
-
-        }
-    }
 
 
     abstract class MvpPresenter<M : MvpModel, V : MvpView> : LifecycleObserver {
@@ -55,44 +58,34 @@ interface BaseMvpContract {
             mModel = model
         }
 
+        @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+        fun onCreate(owner: LifecycleOwner) {
 
-        @UiThread
-        fun attachView(@NonNull view: V?) {
-            if (view != null) {
-                mViewRef = WeakReference(view)
-            } else {
-                throw NullPointerException("View can not be null when use method attachView() in MVPPresenter")
-            }
         }
 
-        @UiThread
-        fun detachView() {
-            if (mViewRef != null) {
-                mViewRef!!.clear()
-                mViewRef = null
-            }
+        @OnLifecycleEvent(Lifecycle.Event.ON_START)
+        fun onStart(owner: LifecycleOwner) {
 
-            if (mModel != null) {
-                mModel!!.onDestroy()
-                mModel = null
-            }
         }
 
-        @UiThread
-        fun getView(): V? {
-            if (isViewAttached()) {
-                return mViewRef!!.get()
-            }
-            return null
+        @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+        fun onResume(owner: LifecycleOwner) {
+
         }
 
-        @UiThread
-        fun isViewAttached(): Boolean {
-            if (mViewRef != null && mViewRef!!.get() != null) {
-                return true
-            } else {
-                throw IllegalStateException("View " + " not attached to Presenter " + this.javaClass.simpleName)
-            }
+        @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+        fun onPause(owner: LifecycleOwner) {
+
+        }
+
+        @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+        fun onStop(owner: LifecycleOwner) {
+
+        }
+
+        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+        fun onDestroy(owner: LifecycleOwner) {
+
         }
 
     }

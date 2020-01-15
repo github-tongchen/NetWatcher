@@ -22,25 +22,24 @@ ext {
             ktxVersion               : '1.1.0',
             appcompatVersion         : '1.1.0',
 
-            //  mosbyMvpVersion          : '3.1.1',
-
             easyPermissionsVersion   : '3.0.0',
 
             arouterApiVersion        : '1.5.0',
             arouterCompilerVersion   : '1.2.2',
 
-            daggerVersion            : '2.25.2',
+            daggerVersion            : '2.25.4',
 
-            lifecycle_version        : '2.1.0',
+            autoDisposeVersion       : '1.4.0',
+            lifecycleVersion         : '2.1.0',
 
-            retrofitVersion          : '2.6.2',
-            okHttpVersion            : '4.2.2',
-            okIoVersion              : '2.4.1',
+            retrofitVersion          : '2.7.1',
+            okHttpVersion            : '4.3.1',
+            okIoVersion              : '2.4.3',
 
-            rxJavaVersion            : '2.2.13',
+            rxJavaVersion            : '2.2.17',
             rxAndroidVersion         : '2.1.1',
 
-            gsonVersion              : '2.8.5',
+            gsonVersion              : '2.8.6',
             jsoupVersion             : '1.12.1',
             dbflowVersion            : '4.2.4',
 

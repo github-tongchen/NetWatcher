@@ -20,6 +20,9 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+#========================================= EasyPermissions =========================================#
+# aar已自带混淆配置，不需要再配置
+
 #============================================= ARouter =============================================#
 -keep public class com.alibaba.android.arouter.routes.**{*;}
 -keep public class com.alibaba.android.arouter.facade.**{*;}
@@ -33,6 +36,12 @@
 #===================================== Dagger2 & DaggerAndroid =====================================#
 # https://github.com/google/dagger/issues/645
 -dontwarn com.google.errorprone.annotations.*
+
+#=========================================== AutoDispose ===========================================#
+# aar已自带混淆配置，不需要再配置
+
+#============================================ Lifecycle ============================================#
+# aar已自带混淆配置，不需要再配置
 
 #============================================ Retrofit2 ============================================#
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
@@ -111,8 +120,8 @@ rx.internal.util.atomic.LinkedQueueNode consumerNode;
 #-keep class com.google.gson.stream.** { *; }
 
 # Application classes that will be serialized/deserialized over Gson
-# 改为自己的实体类
--keep class com.google.gson.examples.android.model.** { *; }
+# 自己的实体类
+-keep class com.tongchen.gank.entity.** { *; }
 
 #============================================== Jsoup ==============================================#
 -keeppackagenames org.jsoup.nodes

@@ -59,9 +59,6 @@ dependencies {
     api "androidx.core:core-ktx:$rootProject.ext.versions.ktxVersion"
     api "androidx.appcompat:appcompat:$rootProject.ext.versions.appcompatVersion"
 
-    //  第三方依赖库
-    //  api "com.hannesdorfmann.mosby3:mvp-lce:$rootProject.ext.versions.mosbyMvpVersion"
-
     //  EasyPermissions
     api "pub.devrel:easypermissions:$rootProject.ext.versions.easyPermissionsVersion"
 
@@ -77,10 +74,15 @@ dependencies {
     api "com.google.dagger:dagger-android-support:$rootProject.ext.versions.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.versions.daggerVersion"
 
+    //  AutoDispose
+    api "com.uber.autodispose:autodispose:$rootProject.ext.versions.autoDisposeVersion"
+    api "com.uber.autodispose:autodispose-lifecycle:$rootProject.ext.versions.autoDisposeVersion"
+    api "com.uber.autodispose:autodispose-android:$rootProject.ext.versions.autoDisposeVersion"
+    api "com.uber.autodispose:autodispose-android-archcomponents:$rootProject.ext.versions.autoDisposeVersion"
     //  Lifecycle
-    api "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.versions.lifecycle_version"
-    api "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.versions.lifecycle_version"
-    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.versions.lifecycle_version"
+    api "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.versions.lifecycleVersion"
+    api "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.versions.lifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.versions.lifecycleVersion"
 
     //  Retrofit2
     api "com.squareup.retrofit2:retrofit:$rootProject.ext.versions.retrofitVersion"
@@ -112,9 +114,9 @@ dependencies {
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.ext.versions.dbflowVersion"
     api "com.github.Raizlabs.DBFlow:dbflow-core:$rootProject.ext.versions.dbflowVersion"
     api "com.github.Raizlabs.DBFlow:dbflow:$rootProject.ext.versions.dbflowVersion"
-    // kotlin extensions
+    //  kotlin extensions
     api "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$rootProject.ext.versions.dbflowVersion"
-    // RXJava 2 Kotlin Extensions Support
+    //  RXJava 2 Kotlin Extensions Support
     api "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:$rootProject.ext.versions.dbflowVersion"
 
     //  Glide

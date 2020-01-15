@@ -9,14 +9,11 @@ import androidx.databinding.BindingConversion
  * <p>
  * Desc:
  */
-object StringConverter {
 
-    @BindingConversion
-    fun emptyData(str: String): String {
-        if (TextUtils.isEmpty(str) || TextUtils.equals("null", str)) {
-            return "空数据"
-        }
-        return str
+@BindingConversion
+fun emptyData(str: String): String {
+    if (TextUtils.isEmpty(str) || TextUtils.equals("null", str)) {
+        return "空数据"
     }
-
+    return str
 }
