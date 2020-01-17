@@ -18,5 +18,6 @@ interface BaseAppComponent {
 
     fun rxBus(): RxBus*/
 
+    //  向依赖它(dependencies)的 Component 提供参数
     fun provideOkHttpClientBuilder(): OkHttpClient.Builder
 }
