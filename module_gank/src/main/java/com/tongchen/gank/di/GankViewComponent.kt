@@ -12,6 +12,8 @@ import dagger.Component
  */
 @ViewScope
 @Component(dependencies = [GankAppComponent::class], modules = [BaseViewModule::class])
-interface GankActivityComponent {
+interface GankViewComponent {
 
+    //fun inject(activity Activity)
+    //fun inject(fragment Fragment)
 }

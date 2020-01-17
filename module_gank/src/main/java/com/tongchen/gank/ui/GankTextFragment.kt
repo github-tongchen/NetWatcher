@@ -1,12 +1,9 @@
 package com.tongchen.gank.ui
 
 import android.os.Bundle
-import android.view.View
-import com.tongchen.basemodule.base.BaseFragment
-import com.tongchen.basemodule.di.BaseViewModule
 import com.tongchen.gank.R
+import com.tongchen.gank.base.GankBaseDBFragment
 import com.tongchen.gank.databinding.ModuleGankFragmentTextBinding
-import com.tongchen.gank.di.*
 import com.tongchen.gank.entity.GankResult
 
 /**
@@ -15,9 +12,7 @@ import com.tongchen.gank.entity.GankResult
  * <p>
  * Desc:
  */
-class GankTextFragment : BaseFragment<ModuleGankFragmentTextBinding>() {
-
-    private var mDataBindingComponent: GankDataBindingComponent? = null
+class GankTextFragment : GankBaseDBFragment<ModuleGankFragmentTextBinding>() {
 
     companion object {
         internal const val ARG_GANK_RESULT = "gank_result"
@@ -31,22 +26,10 @@ class GankTextFragment : BaseFragment<ModuleGankFragmentTextBinding>() {
         }
     }
 
-
-    private fun dataBindingComponent(): GankDataBindingComponent? {
-        if (mDataBindingComponent == null) {
-            mDataBindingComponent = DaggerGankDataBindingComponent.builder()
-                .gankAppComponent(GankDiKit.mComponent as GankAppComponent)
-                .baseViewModule(BaseViewModule(this.activity!!))
-                .build()
-        }
-        return mDataBindingComponent
+    override fun inject2Fragment() {
+        dataBindingComponent()?.inject(this)
     }
 
     override fun getLayoutId(): Int = R.layout.module_gank_fragment_text
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        dataBindingComponent()?.inject(this)
-    }
 }

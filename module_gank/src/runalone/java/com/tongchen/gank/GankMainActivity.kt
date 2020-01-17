@@ -5,8 +5,6 @@ import android.os.Bundle
 
 class GankMainActivity : RootActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.module_gank_activity_main)
-    }
+    override fun getLayoutId(): Int = R.layout.module_gank_activity_main
+
 }

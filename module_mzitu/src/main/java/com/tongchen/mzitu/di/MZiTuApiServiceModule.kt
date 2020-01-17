@@ -1,7 +1,10 @@
-package com.tongchen.mzitu
+package com.tongchen.mzitu.di
 
 import com.tongchen.baselib.net.CommonHeaderInterceptor
+import com.tongchen.basemodule.base.BaseApiHelper
 import com.tongchen.basemodule.di.AppScope
+import com.tongchen.mzitu.net.MZiTuApi
+import com.tongchen.mzitu.net.MZiTuApiHelper
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -20,8 +23,8 @@ class MZiTuApiServiceModule {
 
     @AppScope
     @Provides
-    fun provideMZiTuServiceApi(retrofit: Retrofit): MZiTuServiceApi {
-        return retrofit.create(MZiTuServiceApi::class.java)
+    fun provideMZiTuServiceApi(retrofit: Retrofit): BaseApiHelper {
+        return retrofit.create(MZiTuApiHelper::class.java)
     }
 
     @AppScope

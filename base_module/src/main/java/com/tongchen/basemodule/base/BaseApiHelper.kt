@@ -6,6 +6,6 @@ package com.tongchen.basemodule.base
  * <p>
  * Desc:
  */
-interface BaseApi {
+interface BaseApiHelper {
 
 }

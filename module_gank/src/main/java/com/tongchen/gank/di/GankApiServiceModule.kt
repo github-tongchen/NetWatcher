@@ -1,9 +1,10 @@
 package com.tongchen.gank.di
 
 import com.tongchen.baselib.net.SSLSocketFactoryCompat
+import com.tongchen.basemodule.base.BaseApiHelper
 import com.tongchen.basemodule.di.AppScope
 import com.tongchen.gank.net.GankApi
-import com.tongchen.gank.net.GankServiceApi
+import com.tongchen.gank.net.GankApiHelper
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -26,8 +27,8 @@ class GankApiServiceModule {
 
     @AppScope
     @Provides
-    fun provideGankServiceApi(retrofit: Retrofit): GankServiceApi {
-        return retrofit.create(GankServiceApi::class.java)
+    fun provideGankApiHelper(retrofit: Retrofit): BaseApiHelper {
+        return retrofit.create(GankApiHelper::class.java)
     }
 
     @AppScope

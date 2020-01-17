@@ -1,6 +1,7 @@
-package com.tongchen.mzitu
+package com.tongchen.mzitu.net
 
 import com.tongchen.baselib.converter.ResponseFormat
+import com.tongchen.basemodule.base.BaseApiHelper
 
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -8,7 +9,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Path
 
 
-interface MZiTuServiceApi {
+interface MZiTuApiHelper:BaseApiHelper {
 
 
     @Headers("Referer: " + MZiTuApi.DOMAIN_MZITU, "Domain-Name: " + MZiTuApi.DOMAIN_NAME_MZITU)

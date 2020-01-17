@@ -1,4 +1,4 @@
-package com.tongchen.mzitu
+package com.tongchen.mzitu.net
 
 /**
  * @author TongChen

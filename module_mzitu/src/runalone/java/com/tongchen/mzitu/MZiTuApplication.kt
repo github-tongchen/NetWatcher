@@ -1,22 +1,21 @@
 package com.tongchen.mzitu
 
-import android.util.Log
 import com.tongchen.basemodule.BaseApplication
 import com.tongchen.basemodule.di.AbstractAppComponent
 import com.tongchen.basemodule.di.kit.AppComponentDelegate
-import com.tongchen.componentservice.applicationlike.BaseApplicationLike
+import com.tongchen.componentservice.router.ui.RouteManager
 import com.tongchen.mzitu.di.DaggerMZiTuAppComponent
 import com.tongchen.mzitu.di.MZiTuDiKit
 
 /**
  * @author TongChen
- * @date 2019/10/26  18:14
+ * @date 2020/01/17  18:24
  * <p>
  * Desc:
  */
-class MZiTuAppLike : BaseApplicationLike {
+class MZiTuApplication : BaseApplication() {
 
-    private val TAG = "MZiTuAppLike"
+    private val TAG = "MZiTuApplication"
 
     private val mComponentDelegate = object : AppComponentDelegate {
         override fun initAppComponent(): AbstractAppComponent {
@@ -26,13 +25,11 @@ class MZiTuAppLike : BaseApplicationLike {
         }
     }
 
-    override fun onCreate() {
-        Log.d(TAG, "---onCreate")
-
+    override fun initComponentDi() {
         MZiTuDiKit.init(mComponentDelegate)
     }
 
-    override fun onDestroy() {
-        Log.d(TAG, "---onDestroy")
+    override fun registerRouter() {
+        RouteManager.initRouter(this)
     }
 }

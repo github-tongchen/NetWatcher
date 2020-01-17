@@ -1,7 +1,7 @@
 package com.tongchen.gank.net
 
 import com.tongchen.baselib.converter.ResponseFormat
-import com.tongchen.basemodule.base.BaseApi
+import com.tongchen.basemodule.base.BaseApiHelper
 import com.tongchen.gank.entity.GankData
 import com.tongchen.gank.entity.GankResult
 
@@ -15,7 +15,7 @@ import retrofit2.http.Path
  * <p>
  * Desc: 干货集中营 API
  */
-interface GankServiceApi : BaseApi {
+interface GankApiHelper : BaseApiHelper {
 
     @GET("data/{category}/{size}/{page}")
     @ResponseFormat(ResponseFormat.JSON)

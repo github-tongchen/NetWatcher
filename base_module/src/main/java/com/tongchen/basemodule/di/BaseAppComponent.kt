@@ -1,7 +1,7 @@
 package com.tongchen.basemodule.di
 
-import android.content.Context
 import dagger.Component
+import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 /**
@@ -16,7 +16,7 @@ interface BaseAppComponent {
 
     /*fun restApi(): RestApi
 
-    fun rxBus(): RxBus
+    fun rxBus(): RxBus*/
 
-    fun apiService(): HttpApiService*/
+    fun provideOkHttpClientBuilder(): OkHttpClient.Builder
 }

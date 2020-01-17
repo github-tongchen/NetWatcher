@@ -1,9 +1,8 @@
-package com.tongchen.gank.di
+package com.tongchen.mzitu.di
 
 import androidx.databinding.DataBindingComponent
 import com.tongchen.basemodule.di.BaseViewModule
 import com.tongchen.basemodule.di.ViewScope
-import com.tongchen.gank.ui.GankTextFragment
 import dagger.Component
 
 /**
@@ -13,8 +12,8 @@ import dagger.Component
  * Desc: 在 DataBinding 页面中使用 Dagger2 有一点不一样的地方，即该页面注入的Component必须继承 DataBindingComponent，否则会注入失败
  */
 @ViewScope
-@Component(dependencies = [GankAppComponent::class], modules = [BaseViewModule::class])
-interface GankDataBindingComponent : DataBindingComponent {
+@Component(dependencies = [MZiTuAppComponent::class], modules = [BaseViewModule::class])
+interface MZiTuBindingComponent : DataBindingComponent {
 
-    fun inject(fragment: GankTextFragment)
+    //fun inject(fragment: GankTextFragment)
 }

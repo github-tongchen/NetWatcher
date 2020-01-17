@@ -1,10 +1,9 @@
-package com.tongchen.gank.di
+package com.tongchen.mzitu.di
 
 import com.tongchen.basemodule.base.BaseApiHelper
 import com.tongchen.basemodule.di.AbstractAppComponent
 import com.tongchen.basemodule.di.BaseAppComponent
 import com.tongchen.basemodule.di.AppScope
-import com.tongchen.gank.net.GankApiHelper
 import dagger.Component
 
 /**
@@ -14,10 +13,10 @@ import dagger.Component
  * Desc:
  */
 @AppScope
-@Component(dependencies = [BaseAppComponent::class], modules = [GankAppModule::class])
-interface GankAppComponent : AbstractAppComponent {
+@Component(dependencies = [BaseAppComponent::class], modules = [MZiTuAppModule::class])
+interface MZiTuAppComponent : AbstractAppComponent {
 
     //fun rxBus(): RxBus
 
-    fun gankApiHelper(): BaseApiHelper
+    fun mZiTuApiHelper(): BaseApiHelper
 }

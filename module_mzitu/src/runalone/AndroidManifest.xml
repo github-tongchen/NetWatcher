@@ -1,2 +1,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tongchen.mzitu" />
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tongchen.mzitu">
+
+    <application
+        android:name="com.tongchen.mzitu.MZiTuApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/module_mzitu_app_ic_launcher"
+        android:label="@string/module_mzitu_app_name"
+        android:roundIcon="@mipmap/module_mzitu_app_ic_launcher_round"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name="com.tongchen.mzitu.MZiTuMainActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

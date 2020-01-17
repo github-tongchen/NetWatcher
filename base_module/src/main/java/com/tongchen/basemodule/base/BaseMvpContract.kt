@@ -1,21 +1,13 @@
 package com.tongchen.basemodule.base
 
+import androidx.annotation.MainThread
 import androidx.annotation.NonNull
-import androidx.annotation.UiThread
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 import com.tongchen.baselib.util.LifecycleUtils
-import com.uber.autodispose.AutoDispose
-import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
-import io.reactivex.Observable
-import io.reactivex.Observer
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
-import java.lang.ref.WeakReference
-import java.util.concurrent.TimeUnit
+import com.uber.autodispose.AutoDisposeConverter
 
 /**
  * @author TongChen
@@ -27,21 +19,15 @@ interface BaseMvpContract {
 
     abstract class MvpModel : LifecycleObserver {
 
-        private var mBaseApi: BaseApi? = null
+        private var mBaseApiHelper: BaseApiHelper? = null
 
-        constructor(baseApi: BaseApi) {
-            mBaseApi = baseApi
+        constructor(apiHelper: BaseApiHelper) {
+            mBaseApiHelper = apiHelper
         }
 
         fun onDestroy() {
-            mBaseApi = null
+            mBaseApiHelper = null
 
-        }
-
-        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-        fun onDestroy(owner: LifecycleOwner) {
-
-            owner.lifecycle.removeObserver(this)
         }
     }
 
@@ -52,41 +38,56 @@ interface BaseMvpContract {
     abstract class MvpPresenter<M : MvpModel, V : MvpView> : LifecycleObserver {
 
         private var mModel: M? = null
-        private var mViewRef: WeakReference<V>? = null
+        private var mLifecycleOwner: LifecycleOwner? = null
 
         constructor(model: M) {
             mModel = model
         }
 
+        fun setLifecycleOwner(owner: LifecycleOwner) {
+            mLifecycleOwner = owner
+        }
+
+        protected fun <T> bindLifecycle(): AutoDisposeConverter<T> {
+            val owner = mLifecycleOwner ?: throw NullPointerException("mLifecycleOwner is null")
+            return LifecycleUtils.bindLifecycle(owner)
+        }
+
         @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-        fun onCreate(owner: LifecycleOwner) {
+        protected fun onCreate(@NonNull owner: LifecycleOwner) {
 
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_START)
-        fun onStart(owner: LifecycleOwner) {
+        protected fun onStart(@NonNull owner: LifecycleOwner) {
 
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-        fun onResume(owner: LifecycleOwner) {
+        @MainThread
+        protected fun onResume(@NonNull owner: LifecycleOwner) {
 
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-        fun onPause(owner: LifecycleOwner) {
+        protected fun onPause(@NonNull owner: LifecycleOwner) {
 
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-        fun onStop(owner: LifecycleOwner) {
+        protected fun onStop(@NonNull owner: LifecycleOwner) {
 
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-        fun onDestroy(owner: LifecycleOwner) {
-
+        protected fun onDestroy(@NonNull owner: LifecycleOwner) {
+            mModel?.onDestroy()
+            mModel = null
         }
 
+        @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+        protected fun onLifecycleChanged(@NonNull owner: LifecycleOwner, @NonNull event: Lifecycle.Event) {
+
+        }
     }
 }
