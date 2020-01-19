@@ -2,9 +2,8 @@ package com.tongchen.gank.di
 
 import com.tongchen.basemodule.base.BaseApiHelper
 import com.tongchen.basemodule.di.AbstractAppComponent
-import com.tongchen.basemodule.di.BaseAppComponent
 import com.tongchen.basemodule.di.AppScope
-import com.tongchen.gank.net.GankApiHelper
+import com.tongchen.basemodule.di.BaseAppComponent
 import dagger.Component
 
 /**
