@@ -27,7 +27,6 @@ interface BaseMvpContract {
 
         fun onDestroy() {
             mBaseApiHelper = null
-
         }
     }
 
@@ -38,13 +37,15 @@ interface BaseMvpContract {
     abstract class MvpPresenter<M : MvpModel, V : MvpView> : LifecycleObserver {
 
         private var mModel: M? = null
+        private var mView: V? = null
         private var mLifecycleOwner: LifecycleOwner? = null
 
-        constructor(model: M) {
+        constructor(@NonNull model: M, @NonNull view: V) {
             mModel = model
+            mView = view
         }
 
-        fun setLifecycleOwner(owner: LifecycleOwner) {
+        fun setLifecycleOwner(@NonNull owner: LifecycleOwner) {
             mLifecycleOwner = owner
         }
 
@@ -55,7 +56,7 @@ interface BaseMvpContract {
 
         @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
         protected fun onCreate(@NonNull owner: LifecycleOwner) {
-
+            mLifecycleOwner = owner
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -83,6 +84,7 @@ interface BaseMvpContract {
         protected fun onDestroy(@NonNull owner: LifecycleOwner) {
             mModel?.onDestroy()
             mModel = null
+            mView = null
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_ANY)

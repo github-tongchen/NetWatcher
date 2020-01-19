@@ -3,7 +3,7 @@ package com.tongchen.gank.di
 import androidx.databinding.DataBindingComponent
 import com.tongchen.basemodule.di.BaseViewModule
 import com.tongchen.basemodule.di.ViewScope
-import com.tongchen.gank.ui.GankTextFragment
+import com.tongchen.gank.ui.fragment.GankTextFragment
 import dagger.Component
 
 /**

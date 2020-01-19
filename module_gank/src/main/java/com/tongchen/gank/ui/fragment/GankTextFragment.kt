@@ -1,4 +1,4 @@
-package com.tongchen.gank.ui
+package com.tongchen.gank.ui.fragment
 
 import android.os.Bundle
 import com.tongchen.gank.R
