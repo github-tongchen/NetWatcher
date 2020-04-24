@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.tongchen.componentservice.module.gank.GankService
+import com.tongchen.gank.R
+import com.tongchen.gank.ui.fragment.GankMainFragment
 
 /**
  * @author TongChen
@@ -15,7 +17,11 @@ import com.tongchen.componentservice.module.gank.GankService
 class GankServiceImpl : GankService {
 
     override fun getFragment(): Fragment {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return GankMainFragment.newInstance()
+    }
+
+    override fun getNameRes(): Int {
+        return R.string.module_gank_app_name
     }
 
     override fun init(context: Context?) {

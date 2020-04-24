@@ -1,2 +1,4 @@
 <resources>
+    <string name="module_gank_app_name">干货集中营</string>
+    <string name="module_gank_fragment_main_text">干货集中营主Fragment</string>
 </resources>

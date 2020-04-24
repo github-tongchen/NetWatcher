@@ -2,7 +2,9 @@ package com.tongchen.componentservice.router.ui
 
 import android.app.Application
 import android.content.Context
+import com.alibaba.android.arouter.facade.template.IProvider
 import com.alibaba.android.arouter.launcher.ARouter
+import com.tongchen.componentservice.module.BaseService
 
 /**
  * @author TongChen
@@ -32,7 +34,7 @@ class RouteManager private constructor() {
             ARouter.init(application)
         }
 
-        fun home(context: Context) {
+        fun goto(context: Context) {
             val packageName = context.applicationContext.packageName
             val suffix = packageName.substringAfterLast(".")
             when (suffix) {
@@ -44,6 +46,10 @@ class RouteManager private constructor() {
 
         fun navigation(path: String) {
             ARouter.getInstance().build(path).navigation()
+        }
+
+        fun <T> navigation(service: Class<T>): T {
+            return ARouter.getInstance().navigation(service)
         }
     }
 

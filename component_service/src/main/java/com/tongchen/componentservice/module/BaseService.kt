@@ -12,4 +12,6 @@ import com.alibaba.android.arouter.facade.template.IProvider
 interface BaseService : IProvider {
 
     fun getFragment(): Fragment
+
+    fun getNameRes(): Int
 }
