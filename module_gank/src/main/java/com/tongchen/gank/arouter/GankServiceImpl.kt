@@ -13,7 +13,7 @@ import com.tongchen.gank.ui.fragment.GankMainFragment
  * <p>
  * Desc:模块间服务的具体实现
  */
-@Route(path = "gank/service")
+@Route(path = "/gank/service")
 class GankServiceImpl : GankService {
 
     override fun getFragment(): Fragment {

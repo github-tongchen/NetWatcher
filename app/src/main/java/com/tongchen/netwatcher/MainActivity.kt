@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.app_activity_main)
 
         mGankService = RouteManager.navigation(GankService::class.java)
-//        mGankService = ARouter.getInstance().navigation(GankService::class.java)
 
         tv_name.setText(mGankService!!.getNameRes())
         val transaction = supportFragmentManager.beginTransaction()
