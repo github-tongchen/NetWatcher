@@ -11,11 +11,4 @@
 
     <color name="app_container_bg">#efefef</color>
 
-    <!--TabLayout的颜色-->
-    <color name="app_tab_text_color">#78ffffff</color>
-    <color name="app_tab_text_select_color">#ffffff</color>
-    <color name="app_tab_indicator_color">#ffffff</color>
-
-    <!--FloatingActionButton的背景色-->
-    <color name="app_fab_bg">@color/app_colorPrimary</color>
 </resources>

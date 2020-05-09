@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">NetWatcher</string>
 
-    <!--Behavior-->
-    <string name="fab_scrolling_aware_behavior">com.tongchen.baselib.behavior.FabScrollAwareBehavior</string>
-
 </resources>
