@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/app_colorAccent">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_name"
+    <ImageView
+        android:id="@+id/iv_status_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/app_fl_container"
+        android:layout_height="@dimen/app_status_bar_height"
+        android:background="@color/app_toolbar_bg"
+        app:layout_constraintBottom_toTopOf="@+id/coordinator_layout_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -17,13 +17,39 @@
     <!--被ConstraintLayout 包裹的控件不支持 match_parent，但在实际使用时并没有
     match_constraint，所以实际使用时 使用0dp 表示 match_constraint 即可-->
     <!--使用 match_parent 会出现将上面的 TextView 一半顶出屏幕的效果-->
-    <FrameLayout
-        android:id="@+id/app_fl_container"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_below="@id/iv_status_bar"
+        android:background="@color/app_container_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_status_bar">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_toolbar_height"
+                android:background="@color/app_toolbar_bg"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_scrollFlags="enterAlways|scroll"
+                app:navigationIcon="@drawable/ic_menu"
+                app:title="测试"
+                app:titleTextAppearance="@style/ToolbarTitleTextAppearance" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_module_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

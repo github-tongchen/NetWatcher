@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">NetWatcher</string>
-    <string name="app_title_home">Home</string>
-    <string name="app_title_dashboard">Dashboard</string>
-    <string name="app_title_notifications">Notifications</string>
+
+    <!--Behavior-->
+    <string name="fab_scrolling_aware_behavior">com.tongchen.baselib.behavior.FabScrollAwareBehavior</string>
+
 </resources>

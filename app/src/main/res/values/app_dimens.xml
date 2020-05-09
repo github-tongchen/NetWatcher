@@ -2,4 +2,10 @@
     <!--状态栏高度，用于沉浸式适配兼容-->
     <dimen name="app_status_bar_height">0dp</dimen>
 
+    <!--Toolbar-->
+    <dimen name="app_toolbar_height">56dp</dimen>
+    <dimen name="app_toolbar_title_text_size">20dp</dimen>
+
+    <!--TabLayout-->
+    <dimen name="app_tab_layout_height">40dp</dimen>
 </resources>

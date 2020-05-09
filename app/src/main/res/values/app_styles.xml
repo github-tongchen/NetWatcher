@@ -11,4 +11,10 @@
 
     </style>
 
+    <!--Toolbar/其他标题栏 的文本样式-->
+    <style name="ToolbarTitleTextAppearance">
+        <item name="android:textSize">@dimen/app_toolbar_title_text_size</item>
+        <item name="android:textColor">@color/app_toolbar_title_text_color</item>
+    </style>
+
 </resources>
