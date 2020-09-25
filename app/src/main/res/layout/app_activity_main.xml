@@ -22,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@id/iv_status_bar"
-        android:background="@color/app_container_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,17 +36,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_toolbar_height"
                 android:background="@color/app_toolbar_bg"
-                app:contentInsetStartWithNavigation="0dp"
                 app:layout_scrollFlags="enterAlways|scroll"
-                app:navigationIcon="@drawable/ic_menu"
-                app:title="测试"
-                app:titleTextAppearance="@style/ToolbarTitleTextAppearance" />
+                app:titleTextAppearance="@style/ToolbarTitleTextAppearance">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/app_toolbar_title_text_color"
+                    android:textSize="@dimen/app_toolbar_title_text_size" />
+            </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
             android:id="@+id/fl_module_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="1800dp"
+            android:background="@color/app_container_bg"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

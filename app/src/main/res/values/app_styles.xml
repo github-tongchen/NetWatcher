@@ -1,11 +1,5 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/app_colorAccent</item>
-        <item name="colorPrimaryDark">@color/app_colorPrimaryDark</item>
-        <item name="colorAccent">@color/app_colorAccent</item>
-    </style>
-
     <!--沉浸式状态栏-->
     <style name="TranslucentStatusTheme" parent="Theme.AppCompat.Light.NoActionBar">
 

@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="module_gank_tab_bg">#ffffff</color>
+
+    <!--TabLayout的颜色-->
+    <color name="module_gank_tab_text_color">#78ffffff</color>
+    <color name="module_gank_tab_text_select_color">#ffffff</color>
+    <color name="module_gank_tab_indicator_color">#ffffff</color>
+
 </resources>

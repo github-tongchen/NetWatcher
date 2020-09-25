@@ -4,6 +4,6 @@
 
     <!--Toolbar-->
     <dimen name="app_toolbar_height">56dp</dimen>
-    <dimen name="app_toolbar_title_text_size">20dp</dimen>
+    <dimen name="app_toolbar_title_text_size">18dp</dimen>
 
 </resources>

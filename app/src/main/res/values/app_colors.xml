@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="app_colorPrimary">#008577</color>
-    <color name="app_colorPrimaryDark">#00574B</color>
-    <color name="app_colorAccent">#D81B60</color>
-
 
     <!--Toolbar-->
-    <color name="app_toolbar_bg">@color/app_colorPrimary</color>
+    <color name="app_toolbar_bg">#008577</color>
     <color name="app_toolbar_title_text_color">#ffffff</color>
 
     <color name="app_container_bg">#efefef</color>
