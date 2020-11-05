@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Toolbar-->
+    <color name="module_gank_toolbar_bg">#008577</color>
+
     <color name="module_gank_tab_bg">#ffffff</color>
 
     <!--TabLayout的颜色-->

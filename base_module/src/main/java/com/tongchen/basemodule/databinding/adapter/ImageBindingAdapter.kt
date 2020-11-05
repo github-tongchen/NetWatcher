@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 
 /**
  * @author TongChen
@@ -20,6 +21,7 @@ fun ImageView.loadImage(url: String) {
 @BindingAdapter(value = ["imageUrl", "imageError"])
 fun ImageView.loadImage(url: String, error: Drawable) {
     //PicassoHelperUtils.displayImage(url, this, error)
+//    Glide.with()
 }
 
 @BindingAdapter(value = ["imageUrl", "imageError", "imageWidth", "imageHeight", "imageCenterCrop"], requireAll = false)

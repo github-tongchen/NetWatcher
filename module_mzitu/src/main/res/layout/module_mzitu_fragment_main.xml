@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLyt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/module_gank_tab_layout_height"
+            android:background="@color/module_gank_tab_bg"
+            app:layout_constraintBottom_toTopOf="@id/viewpager"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorColor="@color/module_gank_tab_indicator_color"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/module_gank_tab_text_select_color"
+            app:tabTextColor="@color/module_gank_tab_text_color" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLyt" />
+
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_arrow_top"
+            app:backgroundTint="@color/fab_bg"
+            app:elevation="5dp"
+            app:fabCustomSize="50dp"
+            app:layout_behavior="@string/fab_scrolling_aware_behavior" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

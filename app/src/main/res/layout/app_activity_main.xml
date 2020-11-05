@@ -8,7 +8,6 @@
         android:id="@+id/iv_status_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_status_bar_height"
-        android:background="@color/app_toolbar_bg"
         app:layout_constraintBottom_toTopOf="@+id/coordinator_layout_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +34,6 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_toolbar_height"
-                android:background="@color/app_toolbar_bg"
                 app:layout_scrollFlags="enterAlways|scroll"
                 app:titleTextAppearance="@style/ToolbarTitleTextAppearance">
 
@@ -46,6 +44,14 @@
                     android:layout_gravity="center"
                     android:textColor="@color/app_toolbar_title_text_color"
                     android:textSize="@dimen/app_toolbar_title_text_size" />
+
+                <ImageView
+                    android:id="@+id/iv_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/ic_menu" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 

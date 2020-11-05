@@ -13,5 +13,7 @@ interface BaseService : IProvider {
 
     fun getFragment(): Fragment
 
-    fun getNameRes(): Int
+    fun getTitle(): Int
+
+    fun getToolbarColor(): Int
 }

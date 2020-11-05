@@ -2,9 +2,10 @@
 <resources>
 
     <!--Toolbar-->
-    <color name="app_toolbar_bg">#008577</color>
+    <!--<color name="app_toolbar_bg">#008577</color>-->
     <color name="app_toolbar_title_text_color">#ffffff</color>
 
     <color name="app_container_bg">#efefef</color>
+    <color name="app_fab_bg">#efefef</color>
 
 </resources>

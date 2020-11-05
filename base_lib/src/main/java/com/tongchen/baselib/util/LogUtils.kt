@@ -9,8 +9,11 @@ import android.util.Log
  * <p>
  * Desc: 日志工具类
  */
-class LogUtils {
+class LogUtils private constructor() {
 
+    init {
+        throw IllegalStateException("LogUtils doesn't need to be initialized!")
+    }
 
     companion object {
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Toolbar-->
+    <color name="module_mzitu_toolbar_bg">#FF4081</color>
+
+    <color name="module_mzitu_tab_bg">#ffffff</color>
+
+    <!--TabLayout的颜色-->
+    <color name="module_mzitu_tab_text_color">#78ffffff</color>
+    <color name="module_mzitu_tab_text_select_color">#ffffff</color>
+    <color name="module_mzitu_tab_indicator_color">#ffffff</color>
+
+</resources>
