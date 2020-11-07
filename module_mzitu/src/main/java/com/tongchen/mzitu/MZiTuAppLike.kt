@@ -1,6 +1,6 @@
 package com.tongchen.mzitu
 
-import android.util.Log
+import com.tongchen.baselib.util.LogUtils
 import com.tongchen.basemodule.BaseApplication
 import com.tongchen.basemodule.di.AbstractAppComponent
 import com.tongchen.basemodule.di.kit.AppComponentDelegate
@@ -27,12 +27,12 @@ class MZiTuAppLike : BaseApplicationLike {
     }
 
     override fun onCreate() {
-        Log.d(TAG, "---onCreate")
+        LogUtils.d(TAG, "---onCreate")
 
         MZiTuDiKit.init(mComponentDelegate)
     }
 
     override fun onDestroy() {
-        Log.d(TAG, "---onDestroy")
+        LogUtils.d(TAG, "---onDestroy")
     }
 }

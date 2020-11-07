@@ -5,7 +5,7 @@ import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.tongchen.componentservice.module.gank.GankService
 import com.tongchen.gank.R
-import com.tongchen.gank.ui.fragment.GankMainFragment
+import com.tongchen.gank.biz.ui.fragment.GankMainFragment
 
 /**
  * @author TongChen
@@ -18,8 +18,13 @@ import com.tongchen.gank.ui.fragment.GankMainFragment
 @Route(path = "/gank/service")
 class GankServiceImpl : GankService {
 
+    private lateinit var mFragment: Fragment
+
     override fun getFragment(): Fragment {
-        return GankMainFragment.newInstance()
+        if (!this::mFragment.isInitialized) {
+            mFragment = GankMainFragment.newInstance()
+        }
+        return mFragment
     }
 
     override fun getTitle(): Int {

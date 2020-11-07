@@ -1,6 +1,6 @@
 package com.tongchen.gank.base
 
-import android.app.Activity
+import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import com.tongchen.basemodule.base.BaseMvpContract
 import com.tongchen.basemodule.base.BaseMvpFragment
@@ -22,9 +22,17 @@ abstract class GankBaseMvpFragment<DB : ViewDataBinding, M : BaseMvpContract.Mvp
         if (mViewComponent == null) {
             mViewComponent = DaggerGankViewComponent.builder()
                 .gankAppComponent(GankDiKit.mComponent as GankAppComponent)
-                .baseViewModule(BaseViewModule(activity as Activity))
+                .baseViewModule(BaseViewModule(this))
                 .build()
         }
         return mViewComponent
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        inject2Fragment()
+    }
+
+    abstract fun inject2Fragment()
 }

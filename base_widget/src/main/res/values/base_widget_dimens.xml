@@ -1,0 +1,4 @@
+<resources>
+    <!--分割线高度-->
+    <dimen name="base_widget_divider_height">1dp</dimen>
+</resources>

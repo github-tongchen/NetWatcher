@@ -1,10 +1,10 @@
-package com.tongchen.gank.ui.fragment
+package com.tongchen.gank.biz.ui.fragment
 
 import android.os.Bundle
 import com.tongchen.gank.R
 import com.tongchen.gank.base.GankBaseDBFragment
 import com.tongchen.gank.databinding.ModuleGankFragmentTextBinding
-import com.tongchen.gank.entity.GankResult
+import com.tongchen.gank.biz.entity.GankResult
 
 /**
  * @author TongChen

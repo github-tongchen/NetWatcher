@@ -11,12 +11,12 @@ import dagger.Provides
 
 /**
  * @author TongChen
- * @date 2019/10/29  14:54
+ * @date 2020/11/07  12:00
  * <p>
  * Desc:
  */
-@Module(includes = [GankApiServiceModule::class])
-class GankAppModule {
+@Module
+class GankViewModule {
 
     @ViewScope
     @Provides

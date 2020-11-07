@@ -20,11 +20,12 @@ abstract class BaseMvpActivity<DB : ViewDataBinding, M : BaseMvpContract.MvpMode
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //mPresenter.setLifecycleOwner(this)
         lifecycle.addObserver(mPresenter)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-
+        lifecycle.removeObserver(mPresenter)
     }
 }

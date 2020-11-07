@@ -2,8 +2,8 @@ package com.tongchen.gank.net
 
 import com.tongchen.baselib.converter.ResponseFormat
 import com.tongchen.basemodule.base.BaseApiHelper
-import com.tongchen.gank.entity.GankData
-import com.tongchen.gank.entity.GankResult
+import com.tongchen.gank.biz.entity.GankData
+import com.tongchen.gank.biz.entity.GankResult
 
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -20,7 +20,7 @@ interface GankApiHelper : BaseApiHelper {
     @GET("data/{category}/{size}/{page}")
     @ResponseFormat(ResponseFormat.JSON)
     fun getGankDataByPage(
-        @Path("category") category: String,
+        @Path("category") category: String?,
         @Path("size") size: Int,
         @Path("page") page: Int
     ): Observable<GankData<MutableList<GankResult>>>

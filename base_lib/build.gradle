@@ -130,4 +130,8 @@ dependencies {
     //  SmartRefreshLayout
     api "com.scwang.smartrefresh:SmartRefreshLayout:$rootProject.ext.versions.smartRefreshLayoutVersion"
     api "com.scwang.smartrefresh:SmartRefreshHeader:$rootProject.ext.versions.smartRefreshLayoutVersion"
+
+
+    //  方便实体类重写toString输出日志
+    api 'org.apache.commons:commons-lang3:3.8.1'
 }

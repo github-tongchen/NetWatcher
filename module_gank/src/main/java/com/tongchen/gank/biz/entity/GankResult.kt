@@ -1,4 +1,4 @@
-package com.tongchen.gank.entity
+package com.tongchen.gank.biz.entity
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

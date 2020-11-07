@@ -1,4 +1,4 @@
-package com.tongchen.gank.entity
+package com.tongchen.gank.biz.entity
 
 import com.google.gson.annotations.SerializedName
 
@@ -12,8 +12,8 @@ import com.google.gson.annotations.SerializedName
 class GankData<T> {
 
     @SerializedName("error")
-    var error: Boolean? = null
+    var mError: Boolean = false
 
     @SerializedName("results")
-    var result: T? = null
+    var mResult: T? = null
 }

@@ -1,6 +1,5 @@
 package com.tongchen.basemodule.base
 
-import androidx.annotation.MainThread
 import androidx.annotation.NonNull
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
@@ -19,14 +18,14 @@ interface BaseMvpContract {
 
     abstract class MvpModel : LifecycleObserver {
 
-        private var mBaseApiHelper: BaseApiHelper? = null
+        protected var mApiHelper: BaseApiHelper? = null
 
         constructor(apiHelper: BaseApiHelper) {
-            mBaseApiHelper = apiHelper
+            mApiHelper = apiHelper
         }
 
         fun onDestroy() {
-            mBaseApiHelper = null
+            mApiHelper = null
         }
     }
 
@@ -36,8 +35,8 @@ interface BaseMvpContract {
 
     abstract class MvpPresenter<M : MvpModel, V : MvpView> : LifecycleObserver {
 
-        private var mModel: M? = null
-        private var mView: V? = null
+        protected var mModel: M? = null
+        protected var mView: V? = null
         private var mLifecycleOwner: LifecycleOwner? = null
 
         constructor(@NonNull model: M, @NonNull view: V) {
@@ -65,7 +64,6 @@ interface BaseMvpContract {
         }
 
         @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-        @MainThread
         protected fun onResume(@NonNull owner: LifecycleOwner) {
 
         }

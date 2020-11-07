@@ -6,7 +6,7 @@
 
         <variable
             name="result"
-            type="com.tongchen.gank.entity.GankResult" />
+            type="com.tongchen.gank.biz.entity.GankResult" />
     </data>
 
     <FrameLayout

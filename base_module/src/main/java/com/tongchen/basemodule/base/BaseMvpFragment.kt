@@ -17,16 +17,16 @@ abstract class BaseMvpFragment<DB : ViewDataBinding, M : BaseMvpContract.MvpMode
     @Inject
     lateinit var mPresenter: P
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+        //mPresenter.setLifecycleOwner(this)
         lifecycle.addObserver(mPresenter)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-
+    override fun onDestroy() {
+        super.onDestroy()
+        lifecycle.removeObserver(mPresenter)
     }
 
 }

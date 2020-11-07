@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.tongchen.baselib.util.ClickUtils
+import com.tongchen.baselib.util.LogUtils
 import com.tongchen.baselib.util.ToastUtils
 import com.tongchen.componentservice.module.gank.GankService
 import com.tongchen.componentservice.module.mzitu.MZiTuService
@@ -14,10 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     private val MAX_CLICK_INTERVAL_TIMEMILLS = 1500
 
-    lateinit var mGankService: GankService
-    lateinit var mMZiTuService: MZiTuService
+    private var mGankService: GankService? = null
+    private var mMZiTuService: MZiTuService? = null
 
-    var mLastClickTime: Long = 0
     var mIsGank = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,25 +38,26 @@ class MainActivity : AppCompatActivity() {
         switchContent()
     }
 
-    fun switchContent() {
+    private fun switchContent() {
+        val colorId: Int
         val title: String
         val nextFragment: Fragment
         if (mIsGank) {
             mIsGank = false
-            iv_status_bar.setBackgroundResource(mMZiTuService.getToolbarColor())
-            toolbar.setBackgroundResource(mMZiTuService.getToolbarColor())
-            title = getString(mMZiTuService.getTitle())
-            nextFragment = mMZiTuService.getFragment()
+            colorId = mMZiTuService!!.getToolbarColor()
+            title = getString(mMZiTuService!!.getTitle())
+            nextFragment = mMZiTuService!!.getFragment()
 
         } else {
             mIsGank = true
-            iv_status_bar.setBackgroundResource(mGankService.getToolbarColor())
-            toolbar.setBackgroundResource(mGankService.getToolbarColor())
-            title = getString(mGankService.getTitle())
-            nextFragment = mGankService.getFragment()
+            colorId = mGankService!!.getToolbarColor()
+            title = getString(mGankService!!.getTitle())
+            nextFragment = mGankService!!.getFragment()
         }
 
         tv_title.text = title
+        iv_status_bar.setBackgroundResource(colorId)
+        toolbar.setBackgroundResource(colorId)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.fl_module_container, nextFragment)
         transaction.commit()

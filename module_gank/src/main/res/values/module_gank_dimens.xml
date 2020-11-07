@@ -2,4 +2,7 @@
     <!--TabLayout-->
     <dimen name="module_gank_tab_layout_height">40dp</dimen>
 
+    <!--福利以外的分类item-->
+    <dimen name="module_gank_recycle_item_text_height">90dp</dimen>
+    <dimen name="module_gank_recycle_item_text_image_size">80dp</dimen>
 </resources>

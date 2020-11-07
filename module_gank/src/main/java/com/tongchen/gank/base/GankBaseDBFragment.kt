@@ -24,14 +24,21 @@ abstract class GankBaseDBFragment<DB : ViewDataBinding> : BaseFragment<DB>() {
         if (mDataBindingComponent == null) {
             mDataBindingComponent = DaggerGankDataBindingComponent.builder()
                 .gankAppComponent(GankDiKit.mComponent as GankAppComponent)
-                .baseViewModule(BaseViewModule(this.activity!!))
+                .baseViewModule(BaseViewModule(this))
                 .build()
         }
         return mDataBindingComponent
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        inject2Fragment()
+    }*/
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         inject2Fragment()
     }

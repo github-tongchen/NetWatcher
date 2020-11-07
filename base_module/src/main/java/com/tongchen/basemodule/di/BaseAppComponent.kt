@@ -1,5 +1,6 @@
 package com.tongchen.basemodule.di
 
+import android.content.Context
 import dagger.Component
 import okhttp3.OkHttpClient
 import javax.inject.Singleton
@@ -18,6 +19,9 @@ interface BaseAppComponent {
 
     fun rxBus(): RxBus*/
 
+    fun getContext(): Context
+
     //  向依赖它(dependencies)的 Component 提供参数
     fun provideOkHttpClientBuilder(): OkHttpClient.Builder
+
 }
