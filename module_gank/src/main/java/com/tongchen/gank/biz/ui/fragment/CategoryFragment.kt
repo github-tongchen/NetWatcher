@@ -41,8 +41,6 @@ class CategoryFragment : GankBaseMvpFragment<ModuleGankFragmentCategoryBinding, 
     private var mSpanCount = 1
     protected var mContentFragment: Fragment? = null
 
-    @Inject
-    lateinit var mContext: Context
 
     companion object {
         internal const val SINGLE_SPAN_COUNT = 1
@@ -77,7 +75,6 @@ class CategoryFragment : GankBaseMvpFragment<ModuleGankFragmentCategoryBinding, 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
          mSpanCount = if (mRequestName == "福利") {
 
              MULTIPLE_SPAN_COUNT

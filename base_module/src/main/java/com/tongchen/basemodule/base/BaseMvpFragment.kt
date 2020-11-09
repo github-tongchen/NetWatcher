@@ -21,7 +21,7 @@ abstract class BaseMvpFragment<DB : ViewDataBinding, M : BaseMvpContract.MvpMode
         super.onCreate(savedInstanceState)
 
         //mPresenter.setLifecycleOwner(this)
-        lifecycle.addObserver(mPresenter)
+//        lifecycle.addObserver(mPresenter)
     }
 
     override fun onDestroy() {

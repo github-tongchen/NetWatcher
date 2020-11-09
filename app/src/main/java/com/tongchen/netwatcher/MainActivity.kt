@@ -59,7 +59,12 @@ class MainActivity : AppCompatActivity() {
         iv_status_bar.setBackgroundResource(colorId)
         toolbar.setBackgroundResource(colorId)
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fl_module_container, nextFragment)
+        if (nextFragment.isAdded) {
+            transaction.replace(R.id.fl_module_container, nextFragment)
+
+        } else {
+            transaction.add(R.id.fl_module_container, nextFragment)
+        }
         transaction.commit()
     }
 

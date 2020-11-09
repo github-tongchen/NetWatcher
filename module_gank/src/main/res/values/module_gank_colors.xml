@@ -6,7 +6,7 @@
     <!--Toolbar-->
     <color name="module_gank_toolbar_bg">@color/module_gank_primary_color</color>
 
-    <color name="module_gank_tab_bg">#ffffff</color>
+    <color name="module_gank_tab_bg">@color/module_gank_primary_color</color>
 
     <!--TabLayout的颜色-->
     <color name="module_gank_tab_text_color">#78ffffff</color>

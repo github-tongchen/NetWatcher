@@ -8,9 +8,6 @@
         android:id="@+id/iv_status_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_status_bar_height"
-        app:layout_constraintBottom_toTopOf="@+id/coordinator_layout_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--被ConstraintLayout 包裹的控件不支持 match_parent，但在实际使用时并没有
@@ -28,7 +25,8 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

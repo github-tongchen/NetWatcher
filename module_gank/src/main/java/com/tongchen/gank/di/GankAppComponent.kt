@@ -25,5 +25,4 @@ interface GankAppComponent : AbstractAppComponent {
     fun getContext(): Context
 
     fun gankApiHelper(): BaseApiHelper
-
 }

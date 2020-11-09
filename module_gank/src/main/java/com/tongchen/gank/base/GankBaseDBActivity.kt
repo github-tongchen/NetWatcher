@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import com.tongchen.basemodule.base.BaseActivity
 import com.tongchen.basemodule.di.BaseViewModule
-import com.tongchen.gank.di.DaggerGankDataBindingComponent
-import com.tongchen.gank.di.GankAppComponent
-import com.tongchen.gank.di.GankDataBindingComponent
-import com.tongchen.gank.di.GankDiKit
+import com.tongchen.gank.di.*
 
 /**
  * @author TongChen
@@ -17,11 +14,11 @@ import com.tongchen.gank.di.GankDiKit
  */
 abstract class GankBaseDBActivity<DB : ViewDataBinding> : BaseActivity<DB>() {
 
-    private var mDataBindingComponent: GankDataBindingComponent? = null
+    private var mDataBindingComponent: GankDBComponent? = null
 
-    protected fun dataBindingComponent(): GankDataBindingComponent? {
+    protected fun dataBindingComponent(): GankDBComponent? {
         if (mDataBindingComponent == null) {
-            mDataBindingComponent = DaggerGankDataBindingComponent.builder()
+            mDataBindingComponent = DaggerGankDBComponent.builder()
                 .gankAppComponent(GankDiKit.mComponent as GankAppComponent)
                 .baseViewModule(BaseViewModule(this))
                 .build()

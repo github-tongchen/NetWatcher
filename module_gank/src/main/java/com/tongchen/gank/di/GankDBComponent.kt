@@ -15,7 +15,7 @@ import dagger.Component
  */
 @ViewScope
 @Component(dependencies = [GankAppComponent::class], modules = [BaseViewModule::class])
-interface GankDataBindingComponent : DataBindingComponent {
+interface GankDBComponent : DataBindingComponent {
 
     fun inject(fragment: GankMainFragment)
 

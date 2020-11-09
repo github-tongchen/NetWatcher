@@ -1,16 +1,13 @@
 package com.tongchen.gank.biz.ui.fragment
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.tongchen.baselib.util.LogUtils
-import com.tongchen.basemodule.base.BaseFragment
 import com.tongchen.gank.R
 import com.tongchen.gank.base.GankBaseDBFragment
 import com.tongchen.gank.biz.entity.Category
+import com.tongchen.gank.biz.ui.adapter.FragmentAdapter
 import com.tongchen.gank.databinding.ModuleGankFragmentMainBinding
 import kotlinx.android.synthetic.main.module_gank_fragment_main.*
-import javax.inject.Inject
 
 
 class GankMainFragment : GankBaseDBFragment<ModuleGankFragmentMainBinding>() {
@@ -42,15 +39,15 @@ class GankMainFragment : GankBaseDBFragment<ModuleGankFragmentMainBinding>() {
         initCategories()
         initFragments()
 
-        val fragment = CategoryFragment.newInstance(mCategoryList[0])
+       /* val fragment = CategoryFragment.newInstance(mCategoryList[0])
         val transaction = childFragmentManager.beginTransaction()
         transaction.add(R.id.test, fragment)
-        transaction.commit()
+        transaction.commit()*/
 
 
-        /*val adapter = FragmentAdapter(childFragmentManager, mFragmentList, mCategoryList)
+        val adapter = FragmentAdapter(childFragmentManager, mFragmentList, mCategoryList)
         viewpager.adapter = adapter
-        tabLyt.setupWithViewPager(viewpager)*/
+        tabLyt.setupWithViewPager(viewpager)
     }
 
     private fun initCategories() {
