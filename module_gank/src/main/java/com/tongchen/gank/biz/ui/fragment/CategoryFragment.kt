@@ -1,6 +1,5 @@
 package com.tongchen.gank.biz.ui.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -12,6 +11,8 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.tongchen.baselib.util.LogUtils
 import com.tongchen.basewidget.SimpleItemDecoration
 import com.tongchen.basewidget.adapter.BaseRecyclerAdapter
+import com.tongchen.componentservice.module.gank.GankService
+import com.tongchen.componentservice.router.ui.RouteManager
 import com.tongchen.gank.R
 import com.tongchen.gank.base.GankBaseMvpFragment
 import com.tongchen.gank.biz.CategoryContract
@@ -20,7 +21,6 @@ import com.tongchen.gank.biz.entity.GankResult
 import com.tongchen.gank.biz.ui.adapter.CategoryAdapter
 import com.tongchen.gank.databinding.ModuleGankFragmentCategoryBinding
 import kotlinx.android.synthetic.main.module_gank_fragment_category.*
-import javax.inject.Inject
 
 /**
  * @author TongChen
@@ -28,7 +28,8 @@ import javax.inject.Inject
  * <p>
  * Desc:
  */
-class CategoryFragment : GankBaseMvpFragment<ModuleGankFragmentCategoryBinding, CategoryContract.Model, CategoryContract.View, CategoryContract.Presenter>(),
+class CategoryFragment :
+    GankBaseMvpFragment<ModuleGankFragmentCategoryBinding, CategoryContract.Model, CategoryContract.View, CategoryContract.Presenter>(),
     CategoryContract.View {
 
     private lateinit var mContentAdapter: CategoryAdapter
@@ -39,14 +40,14 @@ class CategoryFragment : GankBaseMvpFragment<ModuleGankFragmentCategoryBinding, 
     private var mRequestName: String? = null
     private var mPage = 1
     private var mSpanCount = 1
-    protected var mContentFragment: Fragment? = null
+    protected lateinit var mContentFragment: Fragment
 
 
     companion object {
         internal const val SINGLE_SPAN_COUNT = 1
         internal const val MULTIPLE_SPAN_COUNT = 2
 
-        private val ARG_CATEGORY = "category"
+        private const val ARG_CATEGORY = "category"
 
         fun newInstance(category: Category): CategoryFragment {
             val fragment = CategoryFragment()
@@ -75,54 +76,54 @@ class CategoryFragment : GankBaseMvpFragment<ModuleGankFragmentCategoryBinding, 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-         mSpanCount = if (mRequestName == "福利") {
+        mSpanCount = if (mRequestName == "福利") {
 
-             MULTIPLE_SPAN_COUNT
-         } else {
-             SINGLE_SPAN_COUNT
-         }
+            MULTIPLE_SPAN_COUNT
+        } else {
+            SINGLE_SPAN_COUNT
+        }
 
-         smartRefreshLyt.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
-             override fun onRefresh(refreshLayout: RefreshLayout) {
-                 mPage = 1
-                 mPresenter.refreshData(mRequestName, 10)
-             }
+        smartRefreshLyt.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
+            override fun onRefresh(refreshLayout: RefreshLayout) {
+                mPage = 1
+                mPresenter.refreshData(mRequestName, 10)
+            }
 
-             override fun onLoadMore(refreshLayout: RefreshLayout) {
-                 mPresenter.loadMoreData(mRequestName, 10, ++mPage)
-             }
-         })
+            override fun onLoadMore(refreshLayout: RefreshLayout) {
+                mPresenter.loadMoreData(mRequestName, 10, ++mPage)
+            }
+        })
 
-         val layoutManager = GridLayoutManager(activity, mSpanCount, GridLayoutManager.VERTICAL, false)
-         recyclerlv_content.layoutManager = layoutManager
-         mContentAdapter = CategoryAdapter(activity!!.applicationContext, mSpanCount, mData)
-         recyclerlv_content.adapter = mContentAdapter
-         recyclerlv_content.addItemDecoration(SimpleItemDecoration(activity))
-         recyclerlv_content.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                 super.onScrollStateChanged(recyclerView, newState)
-                 when (newState) {
-                     //  滑动停止后再加载图片
-                     RecyclerView.SCROLL_STATE_IDLE -> activity?.let { Glide.with(it).resumeRequests() }
-                     //  滑动时暂停加载图片
-                     RecyclerView.SCROLL_STATE_DRAGGING,
-                     RecyclerView.SCROLL_STATE_SETTLING -> activity?.let { Glide.with(it).pauseRequests() }
-                 }
-             }
-         })
+        val layoutManager = GridLayoutManager(activity, mSpanCount, GridLayoutManager.VERTICAL, false)
+        recyclerlv_content.layoutManager = layoutManager
+        mContentAdapter = CategoryAdapter(activity!!.applicationContext, mSpanCount, mData)
+        recyclerlv_content.adapter = mContentAdapter
+        recyclerlv_content.addItemDecoration(SimpleItemDecoration(activity))
+        recyclerlv_content.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                when (newState) {
+                    //  滑动停止后再加载图片
+                    RecyclerView.SCROLL_STATE_IDLE -> activity?.let { Glide.with(it).resumeRequests() }
+                    //  滑动时暂停加载图片
+                    RecyclerView.SCROLL_STATE_DRAGGING,
+                    RecyclerView.SCROLL_STATE_SETTLING -> activity?.let { Glide.with(it).pauseRequests() }
+                }
+            }
+        })
 
-         mContentAdapter.setOnItemClickListener(object : BaseRecyclerAdapter.OnItemClickListener {
-             override fun onItemClick(itemView: View, position: Int) {
-                 val itemData = mData[position]
-                 /*if (mActivity is MainActivity) {
-                    if (itemData.type == "福利") {
-                        //mContentFragment = ContentPicFragment.newInstance(itemData)
+        mContentAdapter.setOnItemClickListener(object : BaseRecyclerAdapter.OnItemClickListener {
+            override fun onItemClick(itemView: View, position: Int) {
+                val itemData = mData[position]
+                if (itemData.type == "福利") {
+                    mContentFragment = ContentPicFragment.newInstance(itemData)
 
-                    } else {
-                        mContentFragment = GankTextFragment.newInstance(itemData)
-                    }
-                    (mActivity as MainActivity).startFragment(mContentFragment as Fragment)
-                }*/
+                } else {
+                    mContentFragment = ContentTextFragment.newInstance(itemData)
+                }
+                val id = RouteManager.navigation(GankService::class.java).getContainerId()
+                val mgr = RouteManager.navigation(GankService::class.java).getFragmentMgr()
+                startFragment(mgr, id, mContentFragment)
             }
         })
 

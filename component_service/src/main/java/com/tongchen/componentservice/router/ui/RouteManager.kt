@@ -2,9 +2,8 @@ package com.tongchen.componentservice.router.ui
 
 import android.app.Application
 import android.content.Context
-import com.alibaba.android.arouter.facade.template.IProvider
 import com.alibaba.android.arouter.launcher.ARouter
-import com.tongchen.componentservice.module.BaseService
+import com.tongchen.baselib.util.LogUtils
 
 /**
  * @author TongChen
@@ -20,6 +19,7 @@ class RouteManager private constructor() {
          */
         val URL_MAIN_GANK = "/gank/main"
         val URL_MAIN_MZITU = "/mzitu/main"
+
         /**
          * 模块应用名
          */
@@ -27,10 +27,12 @@ class RouteManager private constructor() {
         val MODULE_MZITU = "mzitu"
 
         fun initRouter(application: Application) {
-            //  打印日志
-            ARouter.openLog()
-            // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-            ARouter.openDebug()
+            if (LogUtils.isLog) {
+                //  打印日志
+                ARouter.openLog()
+                // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+                ARouter.openDebug()
+            }
             ARouter.init(application)
         }
 

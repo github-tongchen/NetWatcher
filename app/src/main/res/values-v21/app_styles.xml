@@ -1,6 +1,6 @@
 <resources>
     <!--沉浸式状态栏-->
-    <style name="TranslucentStatusTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="TranslucentStatusTheme" parent="AppTheme">
         <!--设置状态栏透明，配合main_include_content.xml根布局设置与Toolbar颜色一致的背景色和fitsSystemWindows=true,达到沉浸状态栏的效果-->
         <item name="android:windowTranslucentStatus">true</item>
 

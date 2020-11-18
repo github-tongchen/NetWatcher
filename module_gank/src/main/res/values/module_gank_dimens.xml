@@ -5,4 +5,14 @@
     <!--福利以外的分类item-->
     <dimen name="module_gank_recycle_item_text_height">90dp</dimen>
     <dimen name="module_gank_recycle_item_text_image_size">80dp</dimen>
+
+
+    <dimen name="module_gank_toolbar_title_text_size">18dp</dimen>
+
+    <!--AppbarLayout-->
+    <dimen name="module_gank_content_text_appbar_height">300dp</dimen>
+
+    <!--CollapsingToolbarLayout-->
+    <dimen name="module_gank_expand_title_size">16dp</dimen>
+    <dimen name="module_gank_collapse_title_size">20dp</dimen>
 </resources>

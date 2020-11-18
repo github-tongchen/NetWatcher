@@ -20,7 +20,7 @@ class LogUtils private constructor() {
         /**
          * BuildConfig.DEBUG的值会随着编译版本变化，在Build Variants中选择"debug"时值为true,选择"release"值为false
          */
-        private val isLog = true
+        const val isLog = true
         private const val DEBUG_LEVEL = 6
 
         private const val VERBOSE = 5

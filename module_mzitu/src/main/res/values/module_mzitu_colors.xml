@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="module_mzitu_primary_color">#FF4081</color>
+
+    <!--Toolbar-->
+    <color name="module_mzitu_toolbar_bg">@color/module_mzitu_primary_color</color>
+
+    <!--TabLayout-->
+    <color name="module_mzitu_tab_bg">@color/module_mzitu_primary_color</color>
+    <color name="module_mzitu_tab_text_color">#78ffffff</color>
+    <color name="module_mzitu_tab_text_select_color">#ffffff</color>
+    <color name="module_mzitu_tab_indicator_color">#ffffff</color>
+
+    <color name="module_mzitu_fab_bg">@color/module_mzitu_primary_color</color>
+
+</resources>

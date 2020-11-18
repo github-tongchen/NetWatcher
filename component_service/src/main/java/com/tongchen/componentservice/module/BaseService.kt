@@ -1,6 +1,7 @@
 package com.tongchen.componentservice.module
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.alibaba.android.arouter.facade.template.IProvider
 
 /**
@@ -16,4 +17,12 @@ interface BaseService : IProvider {
     fun getTitle(): Int
 
     fun getToolbarColor(): Int
+
+    fun setContainerId(containerId: Int)
+
+    fun setFragmentMgr(fragmentManager: FragmentManager)
+
+    fun getContainerId(): Int
+
+    fun getFragmentMgr(): FragmentManager
 }

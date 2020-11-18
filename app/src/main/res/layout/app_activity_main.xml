@@ -17,7 +17,6 @@
         android:id="@+id/coordinator_layout_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@id/iv_status_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_toolbar_height"
                 app:layout_scrollFlags="enterAlways|scroll"
-                app:titleTextAppearance="@style/ToolbarTitleTextAppearance">
+                app:titleTextAppearance="@style/AppToolbarTitleTextAppearance">
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -56,10 +55,15 @@
         <FrameLayout
             android:id="@+id/fl_module_container"
             android:layout_width="match_parent"
-            android:layout_height="1800dp"
-            android:background="@color/app_container_bg"
+            android:layout_height="match_parent"
+            android:background="@color/app_module_container_bg"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

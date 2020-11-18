@@ -3,8 +3,9 @@ package com.tongchen.gank.di
 import androidx.databinding.DataBindingComponent
 import com.tongchen.basemodule.di.BaseViewModule
 import com.tongchen.basemodule.di.ViewScope
+import com.tongchen.gank.biz.ui.fragment.ContentPicFragment
 import com.tongchen.gank.biz.ui.fragment.GankMainFragment
-import com.tongchen.gank.biz.ui.fragment.GankTextFragment
+import com.tongchen.gank.biz.ui.fragment.ContentTextFragment
 import dagger.Component
 
 /**
@@ -19,5 +20,7 @@ interface GankDBComponent : DataBindingComponent {
 
     fun inject(fragment: GankMainFragment)
 
-    fun inject(fragment: GankTextFragment)
+    fun inject(fragment: ContentTextFragment)
+
+    fun inject(fragment: ContentPicFragment)
 }

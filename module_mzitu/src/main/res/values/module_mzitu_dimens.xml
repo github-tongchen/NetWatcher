@@ -1,0 +1,5 @@
+<resources>
+    <!--TabLayout-->
+    <dimen name="module_mzitu_tab_layout_height">40dp</dimen>
+
+</resources>

@@ -1,0 +1,28 @@
+<resources>
+
+    <!--Toolbar/其他标题栏 的文本样式-->
+    <style name="ModuleGankToolbarTitleTextAppearance">
+        <item name="android:textSize">@dimen/module_gank_toolbar_title_text_size</item>
+        <item name="android:textColor">@color/module_gank_toolbar_title_text_color</item>
+    </style>
+
+    <!--CollapsingToolbarLayout 展开时的文本样式-->
+    <style name="ModuleGankExpandedTitleTextAppearance">
+        <item name="android:textSize">@dimen/module_gank_expand_title_size</item>
+        <item name="android:textColor">@color/module_gank_expanded_title_text_color</item>
+    </style>
+
+    <!--CollapsingToolbarLayout 折叠时的文本样式-->
+    <style name="ModuleGankCollapsedTitleTextAppearance">
+        <item name="android:textSize">@dimen/module_gank_collapse_title_size</item>
+        <item name="android:textColor">@color/module_gank_collapsed_title_text_color</item>
+    </style>
+
+    <!--加载网页的进度条-->
+    <style name="ModuleGankWebLoadingProgressBarTheme" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:minHeight">2dp</item>
+        <item name="android:maxHeight">2dp</item>
+        <!--<item name="progress"-->
+    </style>
+
+</resources>

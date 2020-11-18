@@ -9,15 +9,96 @@
             type="com.tongchen.gank.biz.entity.GankResult" />
     </data>
 
-    <FrameLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="@color/module_gank_text_head_bg">
 
-        <ImageView
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLyt"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-            <!--app:imageUrl='@{"http://7xopuh.dl1.z0.glb.clouddn.com/pic06.jpg"}'-->
+            android:layout_height="@dimen/module_gank_content_text_appbar_height"
+            android:fitsSystemWindows="true">
 
-    </FrameLayout>
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbarLyt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleTextAppearance="@style/ModuleGankCollapsedTitleTextAppearance"
+                app:contentScrim="@color/module_gank_primary_color"
+                app:expandedTitleGravity="center_horizontal|bottom"
+                app:expandedTitleMarginBottom="20dp"
+                app:expandedTitleTextAppearance="@style/ModuleGankExpandedTitleTextAppearance"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                app:scrimAnimationDuration="500">
+
+                <ImageView
+                    android:id="@+id/iv_head_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/module_gank_content_text_appbar_height"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.5" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/shape_expand_title_gradient" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin"
+                    app:titleTextAppearance="@style/ModuleGankToolbarTitleTextAppearance">
+
+                    <com.tongchen.basewidget.MarqueTextView
+                        android:id="@+id/mtv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:ellipsize="marquee"
+                        android:singleLine="true"
+                        android:textAppearance="@style/ModuleGankToolbarTitleTextAppearance" />
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/progressbar_4_web"
+                    style="@style/ModuleGankWebLoadingProgressBarTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100" />
+
+                <WebView
+                    android:id="@+id/web_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_publish_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="10dp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

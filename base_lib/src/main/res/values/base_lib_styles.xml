@@ -1,0 +1,8 @@
+<resources>
+
+    <!--Toolbar/其他标题栏 的文本样式-->
+    <style name="BaseLibToolbarTitleTextAppearance">
+        <item name="android:textSize">@dimen/base_lib_title_text_size</item>
+        <item name="android:textColor">@color/base_lib_title_text_color</item>
+    </style>
+</resources>

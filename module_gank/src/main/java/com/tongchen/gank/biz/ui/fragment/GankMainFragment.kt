@@ -39,12 +39,6 @@ class GankMainFragment : GankBaseDBFragment<ModuleGankFragmentMainBinding>() {
         initCategories()
         initFragments()
 
-       /* val fragment = CategoryFragment.newInstance(mCategoryList[0])
-        val transaction = childFragmentManager.beginTransaction()
-        transaction.add(R.id.test, fragment)
-        transaction.commit()*/
-
-
         val adapter = FragmentAdapter(childFragmentManager, mFragmentList, mCategoryList)
         viewpager.adapter = adapter
         tabLyt.setupWithViewPager(viewpager)

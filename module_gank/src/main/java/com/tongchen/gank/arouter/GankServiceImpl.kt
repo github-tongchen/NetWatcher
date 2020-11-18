@@ -2,6 +2,7 @@ package com.tongchen.gank.arouter
 
 import androidx.fragment.app.Fragment
 import android.content.Context
+import androidx.fragment.app.FragmentManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.tongchen.componentservice.module.gank.GankService
 import com.tongchen.gank.R
@@ -20,6 +21,9 @@ class GankServiceImpl : GankService {
 
     private lateinit var mFragment: Fragment
 
+    private lateinit var mFragmentManager: FragmentManager
+    private var mContainerId: Int = 0
+
     override fun getFragment(): Fragment {
         if (!this::mFragment.isInitialized) {
             mFragment = GankMainFragment.newInstance()
@@ -33,6 +37,22 @@ class GankServiceImpl : GankService {
 
     override fun getToolbarColor(): Int {
         return R.color.module_gank_toolbar_bg
+    }
+
+    override fun setContainerId(containerId: Int) {
+        mContainerId = containerId
+    }
+
+    override fun setFragmentMgr(fragmentManager: FragmentManager) {
+        mFragmentManager = fragmentManager
+    }
+
+    override fun getContainerId(): Int {
+        return mContainerId
+    }
+
+    override fun getFragmentMgr(): FragmentManager {
+        return mFragmentManager
     }
 
     override fun init(context: Context?) {

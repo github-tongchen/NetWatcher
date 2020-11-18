@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <color name="module_gank_primary_color">#008577</color>
 
     <!--Toolbar-->
     <color name="module_gank_toolbar_bg">@color/module_gank_primary_color</color>
 
+    <!--TabLayout-->
     <color name="module_gank_tab_bg">@color/module_gank_primary_color</color>
-
-    <!--TabLayout的颜色-->
     <color name="module_gank_tab_text_color">#78ffffff</color>
     <color name="module_gank_tab_text_select_color">#ffffff</color>
     <color name="module_gank_tab_indicator_color">#ffffff</color>
 
     <color name="module_gank_fab_bg">@color/module_gank_primary_color</color>
+
+
+
+    <color name="module_gank_content_pic_bg">#000000</color>
+
+
+    <color name="module_gank_toolbar_title_text_color">#ffffff</color>
+
+    <color name="module_gank_text_head_bg">#efefef</color>
+
+    <!--CollapsingToolbarLayout-->
+    <!--<color name="content_scrim_color">@color/colorPrimary</color>-->
+    <color name="module_gank_expanded_title_text_color">#000000</color>
+    <color name="module_gank_collapsed_title_text_color">#ffffff</color>
+
+    <!--CollapsingToolbarLayout 展开时的标题背景shape的颜色-->
+    <color name="module_gank_shape_expanded_title_gradient_start">#50ffffff</color>
+    <color name="module_gank_shape_expanded_title_gradient_end">#00ffffff</color>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.tongchen.gank.biz.ui.fragment
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.tongchen.gank.R
 import com.tongchen.gank.base.GankBaseDBFragment
 import com.tongchen.gank.databinding.ModuleGankFragmentTextBinding
@@ -12,13 +13,15 @@ import com.tongchen.gank.biz.entity.GankResult
  * <p>
  * Desc:
  */
-class GankTextFragment : GankBaseDBFragment<ModuleGankFragmentTextBinding>() {
+
+@Route(path = "/gank/fragment")
+class ContentTextFragment : GankBaseDBFragment<ModuleGankFragmentTextBinding>() {
 
     companion object {
         internal const val ARG_GANK_RESULT = "gank_result"
 
-        fun newInstance(result: GankResult): GankTextFragment {
-            val fragment = GankTextFragment()
+        fun newInstance(result: GankResult): ContentTextFragment {
+            val fragment = ContentTextFragment()
             val bundle = Bundle()
             bundle.putParcelable(ARG_GANK_RESULT, result)
             fragment.arguments = bundle

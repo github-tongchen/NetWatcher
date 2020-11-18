@@ -1,4 +1,3 @@
 <resources>
-    <string name="base_lib_app_name">base_lib</string>
     <string name="base_lib_fab_scrolling_aware_behavior">com.tongchen.baselib.behavior.FabScrollAwareBehavior</string>
 </resources>
