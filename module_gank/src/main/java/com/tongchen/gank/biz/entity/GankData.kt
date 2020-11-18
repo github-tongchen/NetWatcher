@@ -11,9 +11,9 @@ import com.google.gson.annotations.SerializedName
  */
 class GankData<T> {
 
-    @SerializedName("error")
-    var mError: Boolean = false
+    @SerializedName("status")
+    var mStatus: Int = 100
 
-    @SerializedName("results")
+    @SerializedName("data")
     var mResult: T? = null
 }

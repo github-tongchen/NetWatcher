@@ -13,33 +13,44 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class GankResult constructor(
 
-    @SerializedName("createdAt")
-    var createdAt: String? = null,
-
-    @SerializedName("desc")
-    var desc: String? = null,
-
-    //  Video和Welfare没有images字段，要做null处理
-    @SerializedName("images")
-    var images: List<String>? = null,
-
-    @SerializedName("publishedAt")
-    var publishedAt: String? = null,
-
-    @SerializedName("source")
-    var source: String? = null,
-
-    @SerializedName("type")
-    var type: String? = null,
-
-    @SerializedName("url")
-    var url: String? = null,
+    @SerializedName("views")
+    var views: Int = 0,
 
     @SerializedName("used")
     var isUsed: Boolean = false,
 
-    @SerializedName("who")
-    var who: String? = null,
+    @SerializedName("url")
+    var url: String? = null,
+
+    @SerializedName("type")
+    var type: String? = null,
+
+    @SerializedName("title")
+    var title: String? = null,
+
+    @SerializedName("stars")
+    var stars: Int = 0,
+
+    @SerializedName("publishedAt")
+    var publishedAt: String? = null,
+
+    @SerializedName("likeCounts")
+    var likeCounts: Int = 0,
+
+    @SerializedName("images")
+    var images: List<String>? = null,
+
+    @SerializedName("desc")
+    var desc: String? = null,
+
+    @SerializedName("createdAt")
+    var createdAt: String? = null,
+
+    @SerializedName("category")
+    var category: String? = null,
+
+    @SerializedName("author")
+    var author: String? = null,
 
     @SerializedName("_id")
     var id: String? = null

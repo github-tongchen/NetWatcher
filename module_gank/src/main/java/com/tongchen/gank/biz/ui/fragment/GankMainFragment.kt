@@ -46,15 +46,14 @@ class GankMainFragment : GankBaseDBFragment<ModuleGankFragmentMainBinding>() {
 
     private fun initCategories() {
         mCategoryList = mutableListOf(
-            Category.Builder().categoryName("全部").requestName("all").index(0).build(),
-            Category.Builder().categoryName("Android").requestName("Android").index(1).build(),
-            Category.Builder().categoryName("iOS").requestName("iOS").index(2).build(),
-            Category.Builder().categoryName("前端").requestName("前端").index(3).build(),
-            Category.Builder().categoryName("拓展资源").requestName("拓展资源").index(4).build(),
-            Category.Builder().categoryName("休息视频").requestName("休息视频").index(5).build(),
-            Category.Builder().categoryName("瞎推荐").requestName("瞎推荐").index(6).build(),
-            Category.Builder().categoryName("App").requestName("App").index(7).build(),
-            Category.Builder().categoryName("福利").requestName("福利").index(8).build()
+            Category.Builder().title("全部").type("All").index(0).build(),
+            Category.Builder().title("Android").type("Android").index(1).build(),
+            Category.Builder().title("iOS").type("iOS").index(2).build(),
+            Category.Builder().title("Flutter").type("Flutter").index(3).build(),
+            Category.Builder().title("前端").type("frontend").index(4).build(),
+            Category.Builder().title("后端").type("backend").index(4).build(),
+            Category.Builder().title("APP").type("app").index(5).build(),
+            Category.Builder().title("妹纸").type("Girl").index(6).build()
         )
     }
 

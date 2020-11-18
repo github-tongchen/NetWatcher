@@ -17,11 +17,12 @@ import retrofit2.http.Path
  */
 interface GankApiHelper : BaseApiHelper {
 
-    @GET("data/{category}/{size}/{page}")
+    @GET("data/category/{category}/type/{type}/page/{page}/count/{count}")
     @ResponseFormat(ResponseFormat.JSON)
     fun getGankDataByPage(
         @Path("category") category: String?,
-        @Path("size") size: Int,
-        @Path("page") page: Int
+        @Path("type") type: String,
+        @Path("page") page: Int,
+        @Path("count") count: Int
     ): Observable<GankData<MutableList<GankResult>>>
 }

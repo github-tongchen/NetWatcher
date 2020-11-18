@@ -11,11 +11,12 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 data class Category(
-
+    //  所属的分类，默认All
+    var mCategory: String = "All",
     //  显示的名称
-    var mCategoryName: String? = null,
+    var mTitle: String = "",
     //  请求用的参数
-    var mRequestName: String? = null,
+    var mType: String = "",
     //  当前分类在分类List中的下标
     var mIndex: Int = 0,
     //  分类List的大小
@@ -24,25 +25,31 @@ data class Category(
 ) : BaseBean(), Parcelable {
 
     constructor(builder: Builder) : this() {
-        mCategoryName = builder.categoryName
-        mRequestName = builder.requestName
+        mCategory = builder.category
+        mTitle = builder.title
+        mType = builder.type
         mIndex = builder.index
         mCount = builder.count
     }
 
     class Builder {
-        var categoryName: String? = null
-        var requestName: String? = null
+        var category: String = "All"
+        var title: String = ""
+        var type: String = ""
         var index: Int = 0
         var count = 9
 
-        fun categoryName(categoryName: String): Builder {
-            this.categoryName = categoryName
+        fun category(category: String) {
+            this.category = category
+        }
+
+        fun title(title: String): Builder {
+            this.title = title
             return this
         }
 
-        fun requestName(requestName: String): Builder {
-            this.requestName = requestName
+        fun type(type: String): Builder {
+            this.type = type
             return this
         }
 

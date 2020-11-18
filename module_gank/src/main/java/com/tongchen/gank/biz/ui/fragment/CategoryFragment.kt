@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.tongchen.baselib.util.LogUtils
+import com.tongchen.baselib.util.ToastUtils
 import com.tongchen.basewidget.SimpleItemDecoration
 import com.tongchen.basewidget.adapter.BaseRecyclerAdapter
 import com.tongchen.componentservice.module.gank.GankService
@@ -37,7 +38,7 @@ class CategoryFragment :
 
     //  当前所处Tab的分类
     private var mCategory: Category? = null
-    private var mRequestName: String? = null
+    private var mTitle: String = "All"
     private var mPage = 1
     private var mSpanCount = 1
     protected lateinit var mContentFragment: Fragment
@@ -62,7 +63,7 @@ class CategoryFragment :
         super.onCreate(savedInstanceState)
         if (arguments != null) {
             mCategory = arguments?.getParcelable(ARG_CATEGORY)
-            mRequestName = mCategory?.mRequestName
+            mTitle = mCategory?.mType ?: "All"
         }
     }
 
@@ -76,21 +77,22 @@ class CategoryFragment :
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mSpanCount = if (mRequestName == "福利") {
+        mSpanCount = if (mTitle == "Girl") {
 
             MULTIPLE_SPAN_COUNT
         } else {
             SINGLE_SPAN_COUNT
         }
 
+        smartRefreshLyt.autoRefresh()
         smartRefreshLyt.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
             override fun onRefresh(refreshLayout: RefreshLayout) {
                 mPage = 1
-                mPresenter.refreshData(mRequestName, 10)
+                refreshData()
             }
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
-                mPresenter.loadMoreData(mRequestName, 10, ++mPage)
+                loadMore()
             }
         })
 
@@ -127,9 +129,16 @@ class CategoryFragment :
             }
         })
 
-        mPresenter.refreshData(mRequestName, 10)
+        refreshData()
     }
 
+    override fun refreshData() {
+        mPresenter.refreshData("All", mTitle, 10)
+    }
+
+    override fun loadMore() {
+        mPresenter.loadMoreData("All", mTitle, ++mPage, 10)
+    }
 
     override fun refreshSuccess(result: MutableList<GankResult>?) {
         smartRefreshLyt.finishRefresh(true)
@@ -152,10 +161,13 @@ class CategoryFragment :
     override fun loadMoreSuccess(result: MutableList<GankResult>?) {
         smartRefreshLyt.finishLoadMore(true)
 
-        if (result != null) {
+        if (result != null && result.size > 0) {
             removeIncorrectData(result)
             mData.addAll(result)
             mContentAdapter.notifyDataSetChanged()
+
+        } else {
+            ToastUtils.showShort(activity?.applicationContext, R.string.module_gank_no_more)
         }
         LogUtils.d("CategoryFragment", "loadMoreSucceed---${result.toString()}")
     }

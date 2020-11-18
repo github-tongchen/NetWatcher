@@ -10,7 +10,7 @@ interface GankApi {
 
     companion object {
         const val DOMAIN_NAME_GANK = "domain_name_gank"
-        const val DOMAIN_GANK = "https://gank.io/api/"
+        const val DOMAIN_GANK = "https://gank.io/api/v2/"
 
 
         /**

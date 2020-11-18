@@ -5,12 +5,10 @@ import com.tongchen.baselib.util.LogUtils
 import com.tongchen.basemodule.base.BaseMvpContract
 import com.tongchen.gank.biz.entity.GankData
 import com.tongchen.gank.biz.entity.GankResult
-import com.tongchen.gank.biz.ui.fragment.CategoryFragment
 import com.tongchen.gank.net.GankApiHelper
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
 
 interface CategoryContract : BaseMvpContract {
 
@@ -20,8 +18,8 @@ interface CategoryContract : BaseMvpContract {
 
         }
 
-        fun getGankDataByPage(category: String?, size: Int, page: Int): Observable<GankData<MutableList<GankResult>>> {
-            return (mApiHelper as GankApiHelper).getGankDataByPage(category, size, page)
+        fun getGankDataByPage(category: String, type: String, page: Int, count: Int): Observable<GankData<MutableList<GankResult>>> {
+            return (mApiHelper as GankApiHelper).getGankDataByPage(category, type, page, count)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         }
@@ -29,6 +27,10 @@ interface CategoryContract : BaseMvpContract {
 
 
     interface View : BaseMvpContract.MvpView {
+
+        fun refreshData()
+
+        fun loadMore()
 
         fun refreshSuccess(result: MutableList<GankResult>?)
 
@@ -55,12 +57,12 @@ interface CategoryContract : BaseMvpContract {
         }
 
         @SuppressLint("CheckResult")
-        fun refreshData(category: String?, size: Int) {
+        fun refreshData(category: String, type: String, count: Int) {
             mLoadMode = MODE_REFRESH
-            (mModel as Model).getGankDataByPage(category, size, 1)
+            (mModel as Model).getGankDataByPage(category, type, 1, count)
                 .subscribe({
-                    if (it.mError) {
-                        requestFailed("error = ${it.mError}")
+                    if (it.mStatus != 100) {
+                        requestFailed("error = ${it.mStatus}")
 
                     } else {
                         requestSucceed(it)
@@ -69,12 +71,12 @@ interface CategoryContract : BaseMvpContract {
         }
 
         @SuppressLint("CheckResult")
-        fun loadMoreData(category: String?, size: Int, page: Int) {
+        fun loadMoreData(category: String, type: String, page: Int, count: Int) {
             mLoadMode = MODE_MORE
-            (mModel as Model).getGankDataByPage(category, size, page)
+            (mModel as Model).getGankDataByPage(category, type, page, count)
                 .subscribe({
-                    if (it.mError) {
-                        requestFailed("error = ${it.mError}")
+                    if (it.mStatus != 100) {
+                        requestFailed("error = ${it.mStatus}")
 
                     } else {
                         requestSucceed(it)

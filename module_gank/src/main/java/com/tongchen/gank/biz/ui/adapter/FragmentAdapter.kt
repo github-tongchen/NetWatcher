@@ -34,6 +34,6 @@ class FragmentAdapter : FragmentPagerAdapter {
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return mCategoryList[position].mCategoryName
+        return mCategoryList[position].mTitle
     }
 }
