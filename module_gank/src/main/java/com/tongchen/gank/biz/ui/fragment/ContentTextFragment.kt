@@ -9,9 +9,10 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.RequiresApi
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.tongchen.baselib.listener.AppBarStateChangeListener
+import com.tongchen.componentservice.module.gank.GankService
+import com.tongchen.componentservice.router.ui.RouteManager
 import com.tongchen.gank.R
 import com.tongchen.gank.base.GankBaseDBFragment
 import com.tongchen.gank.databinding.ModuleGankFragmentTextBinding
@@ -57,13 +58,11 @@ class ContentTextFragment : GankBaseDBFragment<ModuleGankFragmentTextBinding>() 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        mDataBinding.result = mGankResult
 
         val imgList = mGankResult?.images
 
-        if (imgList != null) {
-            if (imgList.isNotEmpty()) {
-                Glide.with(activity!!).load(imgList[0]).into(iv_head_bg)
-            }
+        if (imgList != null&&imgList.isNotEmpty()) {
             appbarLyt.setExpanded(true)
 
         } else {
@@ -88,7 +87,11 @@ class ContentTextFragment : GankBaseDBFragment<ModuleGankFragmentTextBinding>() 
             }
         })
 
-        tv_publish_date.text = String.format(getString(R.string.module_gank_publish_date), mGankResult?.publishedAt!!.split("T")[0])
+        toolbar.setNavigationOnClickListener {
+            val mgr = RouteManager.navigation(GankService::class.java).getFragmentMgr()
+            mgr.popBackStack()
+        }
+
         //  先隐藏加载完成后再显示
         tv_publish_date.visibility = View.GONE
 
@@ -134,4 +137,14 @@ class ContentTextFragment : GankBaseDBFragment<ModuleGankFragmentTextBinding>() 
         super.onStop()
         web_content.stopLoading()
     }
+
+    override fun onBackPressed(): Boolean {
+        if (web_content.canGoBack()) {
+            web_content.stopLoading()
+            web_content.goBack()
+            return true
+        }
+        return super.onBackPressed()
+    }
+
 }

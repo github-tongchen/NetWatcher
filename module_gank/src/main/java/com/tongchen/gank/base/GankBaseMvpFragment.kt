@@ -27,12 +27,4 @@ abstract class GankBaseMvpFragment<DB : ViewDataBinding, M : BaseMvpContract.Mvp
         }
         return mViewComponent
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        inject2Fragment()
-    }
-
-    abstract fun inject2Fragment()
 }

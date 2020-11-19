@@ -7,22 +7,25 @@ import androidx.fragment.app.Fragment
 import com.tongchen.baselib.util.ClickUtils
 import com.tongchen.baselib.util.ScreenUtils
 import com.tongchen.baselib.util.ToastUtils
+import com.tongchen.basemodule.FragmentBackHandler
+import com.tongchen.basemodule.base.RootFragment
 import com.tongchen.componentservice.module.gank.GankService
 import com.tongchen.componentservice.module.mzitu.MZiTuService
 import com.tongchen.componentservice.router.ui.RouteManager
 import kotlinx.android.synthetic.main.app_activity_main.*
 import kotlin.system.exitProcess
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FragmentBackHandler {
 
     private val MAX_CLICK_INTERVAL_TIMEMILLS = 1500
 
     private var mGankService: GankService? = null
     private var mMZiTuService: MZiTuService? = null
 
-    private var mCurrentFragment: Fragment? = null
+    private var mCurrentModuleFragment: Fragment? = null
+    private var mIsGank = false
 
-    var mIsGank = false
+    private var mCurrentShowFragment: RootFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,20 +75,27 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         if (!nextFragment.isAdded) {
             transaction.add(R.id.fl_module_container, nextFragment)
-            mCurrentFragment?.let { transaction.hide(it) }
+            mCurrentModuleFragment?.let { transaction.hide(it) }
 
         } else {
             if (!nextFragment.isVisible) {
                 transaction.show(nextFragment)
-                mCurrentFragment?.let { transaction.hide(it) }
+                mCurrentModuleFragment?.let { transaction.hide(it) }
             }
         }
         transaction.commit()
-        mCurrentFragment = nextFragment
+        mCurrentModuleFragment = nextFragment
     }
 
+    override fun showingFragment(showingFragment: RootFragment?) {
+        mCurrentShowFragment = showingFragment
+    }
 
     override fun onBackPressed() {
+        //  Fragment消费掉返回事件
+        if (mCurrentShowFragment != null && mCurrentShowFragment!!.onBackPressed()) {
+            return
+        }
         if (supportFragmentManager.backStackEntryCount > 0) {
             super.onBackPressed()
             return

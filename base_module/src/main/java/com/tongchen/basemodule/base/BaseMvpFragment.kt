@@ -20,8 +20,10 @@ abstract class BaseMvpFragment<DB : ViewDataBinding, M : BaseMvpContract.MvpMode
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //mPresenter.setLifecycleOwner(this)
-//        lifecycle.addObserver(mPresenter)
+        inject2Fragment()
+        
+//        mPresenter.setLifecycleOwner(this)
+        lifecycle.addObserver(mPresenter)
     }
 
     override fun onDestroy() {
@@ -29,4 +31,5 @@ abstract class BaseMvpFragment<DB : ViewDataBinding, M : BaseMvpContract.MvpMode
         lifecycle.removeObserver(mPresenter)
     }
 
+    abstract fun inject2Fragment()
 }

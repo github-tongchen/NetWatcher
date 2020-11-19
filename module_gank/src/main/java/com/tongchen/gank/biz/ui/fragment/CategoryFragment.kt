@@ -162,7 +162,7 @@ class CategoryFragment :
         smartRefreshLyt.finishLoadMore(true)
 
         if (result != null && result.size > 0) {
-            removeIncorrectData(result)
+            //removeIncorrectData(result)
             mData.addAll(result)
             mContentAdapter.notifyDataSetChanged()
 

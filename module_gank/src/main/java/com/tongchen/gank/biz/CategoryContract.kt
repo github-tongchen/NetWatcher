@@ -60,6 +60,7 @@ interface CategoryContract : BaseMvpContract {
         fun refreshData(category: String, type: String, count: Int) {
             mLoadMode = MODE_REFRESH
             (mModel as Model).getGankDataByPage(category, type, 1, count)
+                .`as`(bindLifecycle())
                 .subscribe({
                     if (it.mStatus != 100) {
                         requestFailed("error = ${it.mStatus}")
@@ -74,6 +75,7 @@ interface CategoryContract : BaseMvpContract {
         fun loadMoreData(category: String, type: String, page: Int, count: Int) {
             mLoadMode = MODE_MORE
             (mModel as Model).getGankDataByPage(category, type, page, count)
+                .`as`(bindLifecycle())
                 .subscribe({
                     if (it.mStatus != 100) {
                         requestFailed("error = ${it.mStatus}")
