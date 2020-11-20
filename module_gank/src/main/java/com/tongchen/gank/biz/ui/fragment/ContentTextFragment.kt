@@ -88,15 +88,10 @@ class ContentTextFragment : GankBaseDBFragment<ModuleGankFragmentTextBinding>() 
         })
 
         toolbar.setNavigationOnClickListener {
-            val mgr = RouteManager.navigation(GankService::class.java).getFragmentMgr()
-            mgr.popBackStack()
+            RouteManager.navigation(GankService::class.java).getFragmentMgr().popBackStack()
         }
 
-        //  先隐藏加载完成后再显示
-        tv_publish_date.visibility = View.GONE
-
         web_content.webViewClient = object : WebViewClient() {
-
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 web_content.loadUrl(url)
                 return true

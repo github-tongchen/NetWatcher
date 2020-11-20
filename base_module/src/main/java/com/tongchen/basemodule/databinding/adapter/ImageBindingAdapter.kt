@@ -1,12 +1,8 @@
 package com.tongchen.basemodule.databinding.adapter
 
-import android.app.Activity
-import android.graphics.drawable.Drawable
-import android.text.TextUtils
 import android.widget.ImageView
-
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
+import com.tongchen.baselib.util.loadMiddleImage
 
 /**
  * @author TongChen
@@ -15,19 +11,18 @@ import com.bumptech.glide.Glide
  * Desc:
  */
 
-@BindingAdapter(value = ["imageUrl"])
-fun ImageView.loadImage(url: String) {
-    //PicassoHelperUtils.displayImage(url, this)
-    Glide.with(this.context).load(url).into(this)
+@BindingAdapter(value = ["middleImgUrl"])
+fun ImageView.loadMiddleImage(url: String) {
+    this.loadMiddleImage(url)
 }
 
-@BindingAdapter(value = ["imageUrl"])
-fun ImageView.loadImage(urls: List<String>) {
-    for (value in urls) {
-        if (value.isBlank()) {
+@BindingAdapter(value = ["middleImgUrls"])
+fun ImageView.loadMiddleImage(urls: List<String>) {
+    for (url in urls) {
+        if (url.isBlank()) {
             continue
         }
-        Glide.with(this.context).load(value).into(this)
+        this.loadMiddleImage(url)
         break
     }
 }

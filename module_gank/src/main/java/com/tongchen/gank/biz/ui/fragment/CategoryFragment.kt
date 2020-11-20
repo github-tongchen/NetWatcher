@@ -117,7 +117,7 @@ class CategoryFragment :
         mContentAdapter.setOnItemClickListener(object : BaseRecyclerAdapter.OnItemClickListener {
             override fun onItemClick(itemView: View, position: Int) {
                 val itemData = mData[position]
-                if (itemData.type == "福利") {
+                if (itemData.type == "妹纸") {
                     mContentFragment = ContentPicFragment.newInstance(itemData)
 
                 } else {

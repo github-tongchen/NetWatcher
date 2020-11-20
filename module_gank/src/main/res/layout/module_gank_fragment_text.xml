@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="result"
             type="com.tongchen.gank.biz.entity.GankResult" />
@@ -39,9 +38,9 @@
                     android:layout_height="@dimen/module_gank_content_text_appbar_height"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    app:imageUrl='@{result.images}'
                     app:layout_collapseMode="parallax"
-                    app:layout_collapseParallaxMultiplier="0.5" />
+                    app:layout_collapseParallaxMultiplier="0.5"
+                    app:middleImgUrls='@{result.images}' />
 
                 <View
                     android:layout_width="match_parent"
@@ -97,7 +96,8 @@
                     android:layout_height="50dp"
                     android:gravity="right|center_vertical"
                     android:paddingRight="10dp"
-                    android:text="@{result.publishedAt}" />
+                    android:text="@{result.publishedAt}"
+                    android:visibility="gone" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
