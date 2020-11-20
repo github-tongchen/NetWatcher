@@ -2,6 +2,7 @@ package com.tongchen.basemodule.databinding.adapter
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.tongchen.baselib.util.loadLargeImage
 import com.tongchen.baselib.util.loadMiddleImage
 
 /**
@@ -25,6 +26,11 @@ fun ImageView.loadMiddleImage(urls: List<String>) {
         this.loadMiddleImage(url)
         break
     }
+}
+
+@BindingAdapter(value = ["largeImgUrl"])
+fun ImageView.loadLargeImage(url: String) {
+    this.loadLargeImage(url)
 }
 
 /*@BindingAdapter(value = ["imageUrl", "imageError"])

@@ -9,11 +9,11 @@ import androidx.databinding.ViewDataBinding
 
 /**
  * @author TongChen
- * @date 2019/12/30  18:44
+ * @date 2020/11/20  16:51
  * <p>
  * Desc:
  */
-abstract class BaseFragment<DB : ViewDataBinding> : RootFragment() {
+abstract class BaseDialogFragment<DB : ViewDataBinding> :RootDialogFragment() {
 
     protected lateinit var mDataBinding: DB
 

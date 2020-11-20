@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.tongchen.basemodule.FragmentBackHandler
+import com.tongchen.basemodule.R
 import com.tongchen.basemodule.di.BaseViewComponent
 import com.tongchen.basemodule.di.BaseViewModule
 import com.tongchen.basemodule.di.DaggerBaseViewComponent
@@ -60,6 +62,18 @@ abstract class RootFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         viewComponent()!!.inject(this)
+    }
+
+    fun startFragment(fragmentMgr: FragmentManager, containerId: Int, fragment: Fragment) {
+        val transaction = fragmentMgr.beginTransaction()
+        transaction.setCustomAnimations(
+            R.anim.fragment_translate_in,
+            R.anim.fragment_translate_out,
+            R.anim.fragment_translate_in,
+            R.anim.fragment_translate_out
+        )
+        transaction.add(containerId, fragment).addToBackStack(null)
+        transaction.commit()
     }
 
     /**

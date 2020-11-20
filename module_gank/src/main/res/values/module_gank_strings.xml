@@ -2,4 +2,19 @@
     <string name="module_gank_app_name">干货集中营</string>
     <string name="module_gank_no_more">没有更多啦！</string>
 
+    <string name="module_gank_confirm_dialog_title">保存图片</string>
+    <string name="module_gank_confirm_dialog_content">施主，你真的要保存这张图吗？须知“色即是空，空即是色”</string>
+    <string name="module_gank_confirm_dialog_positive">是的，我淫如魔</string>
+    <string name="module_gank_confirm_dialog_negative">不了，我圣于佛</string>
+    <string name="module_gank_save_pic_succeed">图片保存成功</string>
+    <string name="module_gank_save_pic_failed">图片保存失败</string>
+
+    <string name="module_gank_permission_save_pic">保存图片到手机</string>
+    <string name="module_gank_permission_grant_request">需要使用 %s 权限，是否授权</string>
+    <string name="module_gank_permission_grant_succeed">%s 权限获取成功</string>
+    <string name="module_gank_permission_grant_failed">%s 权限获取失败</string>
+    <string name="module_gank_permission_grant_failed_no_ask">已拒绝权限 %s 并不再询问</string>
+    <string name="module_gank_permission_grant_failed_2_setting_tip">此功能需要 %s 权限，否则无法正常使用，是否打开设置进行授权</string>
+    <string name="module_gank_permission_grant_failed_2_setting_positive">是</string>
+    <string name="module_gank_permission_grant_failed_2_setting_negative">否</string>
 </resources>

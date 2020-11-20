@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dialogBean"
+            type="com.tongchen.basemodule.ConfirmDialogFragment.DialogBean" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/base_module_shape_confirm_dialog_bg">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:text="@{dialogBean.titleStr}"
+                android:textColor="@color/base_module_dialog_title_text_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view_divider_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_title"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/base_module_divide_line_color" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_divider_horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@{dialogBean.contentStr}"
+                android:textColor="@color/base_module_dialog_content_text_color"
+                android:textSize="17sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true">
+
+                <View
+                    android:id="@+id/view_divider"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/base_module_divide_line_color" />
+
+                <TextView
+                    android:id="@+id/tv_positive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/view_divider"
+                    android:gravity="center"
+                    android:text="@{dialogBean.positiveStr}"
+                    android:textColor="@color/base_module_dialog_positive_text_color" />
+
+                <TextView
+                    android:id="@+id/tv_negative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/view_divider"
+                    android:gravity="center"
+                    android:text="@{dialogBean.negativeStr}"
+                    android:textColor="@color/base_module_dialog_nagetive_text_color" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>
