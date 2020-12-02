@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity(), FragmentBackHandler {
 
     private var mGankService: GankService? = null
     private var mMZiTuService: MZiTuService? = null
-
+    //  当前展示的模块的根Fragment
     private var mCurrentModuleFragment: Fragment? = null
     private var mIsGank = false
-
+    //  当前展示的最上层的Fragment
     private var mCurrentShowFragment: RootFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), FragmentBackHandler {
         mGankService!!.setContainerId(R.id.fl_fragment_container)
         mGankService!!.setFragmentMgr(supportFragmentManager)
 
-        iv_switch.setOnClickListener {
+        tv_title.setOnClickListener {
             if (ClickUtils.isFastDoubleClick(MAX_CLICK_INTERVAL_TIMEMILLS)) {
                 ToastUtils.showShort(applicationContext, "点击过快，请稍后重试！")
 

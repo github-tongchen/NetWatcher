@@ -41,12 +41,16 @@ class CategoryFragment :
     private var mTitle: String = "All"
     private var mPage = 1
     private var mSpanCount = 1
+    private var mRequestDataCount = 10
     protected lateinit var mContentFragment: Fragment
 
 
     companion object {
         internal const val SINGLE_SPAN_COUNT = 1
         internal const val MULTIPLE_SPAN_COUNT = 2
+
+        internal const val SINGLE_SPAN_DATA_COUNT = 10
+        internal const val MULTIPLE_SPAN_DATA_COUNT = 20
 
         private const val ARG_CATEGORY = "category"
 
@@ -84,6 +88,12 @@ class CategoryFragment :
             SINGLE_SPAN_COUNT
         }
 
+        mRequestDataCount = if (mTitle == "Girl") {
+            MULTIPLE_SPAN_DATA_COUNT
+        } else {
+            SINGLE_SPAN_DATA_COUNT
+        }
+
         smartRefreshLyt.autoRefresh()
         smartRefreshLyt.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
             override fun onRefresh(refreshLayout: RefreshLayout) {
@@ -103,7 +113,6 @@ class CategoryFragment :
         recyclerlv_content.addItemDecoration(SimpleItemDecoration(activity))
         recyclerlv_content.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
                 when (newState) {
                     //  滑动停止后再加载图片
                     RecyclerView.SCROLL_STATE_IDLE -> activity?.let { Glide.with(it).resumeRequests() }
@@ -133,11 +142,11 @@ class CategoryFragment :
     }
 
     override fun refreshData() {
-        mPresenter.refreshData("All", mTitle, 10)
+        mPresenter.refreshData("All", mTitle, mRequestDataCount)
     }
 
     override fun loadMore() {
-        mPresenter.loadMoreData("All", mTitle, ++mPage, 10)
+        mPresenter.loadMoreData("All", mTitle, ++mPage, mRequestDataCount)
     }
 
     override fun refreshSuccess(result: MutableList<GankResult>?) {
@@ -176,22 +185,6 @@ class CategoryFragment :
         smartRefreshLyt.finishLoadMore(false)
 
         LogUtils.d("CategoryFragment", "loadMoreFailed---$msg")
-    }
-
-    private fun removeIncorrectData(result: MutableList<GankResult>) {
-        val incorrectData = mutableListOf<GankResult>()
-        for (element in result) {
-            if (element.type == "福利") {
-                //  url 不以jpg、jpeg结尾或者包含 7xi8d6.com（此网址挂了）或者来自的 img.gank.io（证书无效）的移除
-                if (!(element.url!!.endsWith(".jpg") || element.url!!.endsWith(".jpeg"))
-                    || element.url!!.contains("7xi8d6.com")
-                    || element.url!!.contains("img.gank.io")
-                ) {
-                    incorrectData.add(element)
-                }
-            }
-        }
-        result.removeAll(incorrectData)
     }
 
     //  返回到顶部
